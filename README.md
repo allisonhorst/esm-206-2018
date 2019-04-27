@@ -3,6 +3,15 @@
 
 Bren School of Environmental Science and Management, UC Santa Barbara 
 
+Course goals: 
+
+  - Intro to data analysis in R/RStudio
+  - Data wrangling with the tidyverse
+  - Exploratory data analysis
+  - Basic summary statistics & hypothesis testing
+  - Data visualization 
+  - Reproducible workflows with RProjects, Rmarkdown, and GitHub
+
 *Note: Repo and course materials are in development; forgive the dust and incompleteness while I work on it.*
 
 Link to Weekly Materials | Lab topics | Packages required | Some key functions introduced this week...
