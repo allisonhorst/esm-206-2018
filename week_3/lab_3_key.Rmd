@@ -1,0 +1,247 @@
+---
+title: "ESM 206 Lab 3"
+author: "Allison Horst"
+date: "October 11, 2018"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###First: Load packages and data
+
+If knitting to PDF, DEFINITELY set message = FALSE in the chunk where you load the tidyverse, because there is a character in the message that LaTex doesn't understand and you'll get an error. Alternatively, use suppressMessages(library(tidyverse))
+
+```{r, echo = FALSE, message = FALSE}
+###############
+# Packages + data
+###############
+
+library(tidyverse) 
+library(ggpubr)
+
+flint <- read_csv("flint.csv")
+```
+
+
+##A. Probabilities and confidence intervals for the normal distribution
+
+If we have satisfied assumptions to use the Z-distribution, we can use built-in functions in R to calculate probabilities associated with it. The ones we'll use today are *pnorm* and *qnorm*. 
+
+*pnorm* is used to find probabilities (areas under the curve)...the default is finding the area to the LEFT of the value you're interested in (lower tail)
+
+*qnorm* is used to find the value of the random variable associated with a given percentile (probability)
+
+Let's say we're told the following: You are told that the population distribution of cat weights (pounds) is normally distributed with a mean of 9.2 pounds and a standard deviation of 1.4 pounds. 
+
+We ask:
+
+1. Why would it be appropriate to use the Z-distribution to calculate probabilities? 
+
+2. What is the probability of randomly selecting a cat from the population that:
+
+- weighs less than 8 pounds?
+- weighs more than 10 pounds? 
+- weighs between 8 and 11 pounds?
+
+When in doubt, always draw a picture!
+
+Heads up here: if knitting to a PDF, text in code doesn't automatically wrap (and there's actually not a really easy way to do it).
+
+```{r}
+############
+# Probabilities with the Z-distribution
+############
+cat_mean <- 9.2
+cat_sd <- 1.4
+
+less_8 <- pnorm(8, 
+                mean = cat_mean, 
+                sd = cat_sd) #0.196
+
+more_10 <- pnorm(10, 
+                 mean = cat_mean, 
+                 sd = cat_sd, 
+                 lower.tail = FALSE) #0.28
+
+between_9_10 <- pnorm(11, mean = cat_mean, sd = cat_sd) - 
+  pnorm(8, mean = cat_mean, sd = cat_sd) #0.705
+```
+
+3. At what weight would a cat be at the 90th percentile in weight for the population? At the 30th percentile? 
+
+```{r}
+
+perc_90 <- qnorm(0.9, 
+                 mean = cat_mean, 
+                 sd = cat_sd) #10.99 pounds
+
+perc_30 <- qnorm(0.3, 
+                 mean = cat_mean, 
+                 sd = cat_sd) #8.47 pounds
+
+```
+
+#B. The t-distribution for confidence intervals and hypothesis test intro (one-sample t-test)
+
+When we use pnorm/dnorm we're evaluating probabilities using the Z-distribution. What if we don't know the population sd? If our sample is normally distributed (even at n < 30), or if we have a larger sample (n > 30, due to CLT), we can still use the t-distribution to evaluate probabilities. 
+
+We'll do that in the context of a one-sample hypothesis test to test a claim as an example, using the *t.test()* function. 
+
+#Moving on: using the t-distribution
+
+##First, explore the 'iris' dataset.
+
+###THIS IS RELEVANT TO YOUR ASSIGNMENT: 
+To create side-by-side exploratory graphs, you can use facet_wrap to split up graph information by levels of a variable (column). 
+
+For example, let's make exploratory histograms and qq-plots of iris petal lengths, then separate by species.
+
+
+```{r}
+
+ggplot(iris, aes(x = Petal.Length)) +
+  geom_histogram(aes(fill = Species), bins = 8) +
+  facet_wrap(~Species, scale = "free")
+
+# similarly for qqplot:
+
+ggplot(iris, aes(sample = Petal.Length)) +
+  geom_qq(aes(color = Species)) +
+  facet_wrap(~Species, scale = "free")
+
+
+```
+
+Example (using the 'iris' dataset):
+We read a claim that the mean petal length of setosa irises is 1.5cm. We question that claim, and luckily have Edgar Anderson's iris data to use as a sample. Based on Anderson's measurements, do we have enough evidence to reject the claim? 
+
+a. First, create a subset that only contains information for setosa petal lengths:
+```{r}
+
+setosa_petals <- iris %>%
+  filter(Species == "setosa") %>% 
+  select(Petal.Length) %>% 
+  rename(length = Petal.Length)
+
+```
+
+b. Next, do some exploring! This is always necessary. 
+
+```{r}
+
+# Look at it
+hist(setosa_petals$length)
+qqnorm(setosa_petals$length)
+
+# In ggplot:
+
+ggplot(setosa_petals, aes(sample = length)) +
+  geom_qq()
+
+mean_pl <- mean(setosa_petals$length) # 1.462
+sd_pl <- sd(setosa_petals$length) #0.173
+```
+
+c. Find the 95% confidence interval for setosa iris petal length. What does that mean? 
+
+Also uses t.test(default for one sample is a 95% confidence level)
+
+```{r}
+
+setosa_ci <- t.test(setosa_petals$length)
+setosa_ci
+
+# 95 percent confidence interval:
+#  1.412645 1.511355
+
+# "Mean setosa petal length (n = 50) is 1.46 cm, with a 95% confidence interval of [1.41, 1.51] cm." 
+
+# What if we wanted to find an 80% confidence interval?
+
+setosa_ci_80 <- t.test(setosa_petals$length, conf.level = 0.8)
+setosa_ci_80
+
+```
+
+
+d. Now, we'll test the claim using a two-sided, one-sample t-test.
+
+Null hypothesis: Mean petal length for setosa irises is 1.5cm.
+Alternative hypothesis: Mean petal length is NOT 1.5cm (two-sided).
+
+```{r}
+
+tpetal <- t.test(setosa_petals$length, mu = 1.5)
+# p = 0.12. What does this mean? Do we have enough evidence to reject the null?
+
+```
+
+There is insufficient evidence to reject the claim that mean setosa iris petal length is 1.5 cm (t(49) = -1.55, p = 0.13).
+
+e. What if we read a claim that the mean petal length is 1.6 cm, but we think that the true mean is LOWER than 1.6 cm? 
+
+```{r}
+tpetal_lower <- t.test(setosa_petals$length, mu = 1.6, alternative = "less")
+# p = 4.5e-07
+```
+
+If the true mean is 1.6cm, there is only a probability of 4.5x10^-7^ that a sample (n = 50) drawn from that population would have a mean of OUR sample mean (1.462cm) or less by random chance...it's more likely that the claim is wrong, and that the true mean is actually lower. 
+
+Based on our sample (mean = 1.46, n = 50), we conclude that the mean petal length for setosa irises is lower than the claim of 1.6 cm (t(49) = -5.6, p < 0.001).
+
+#C. Two-sample t-tests (Flint water)
+
+Briefly describe dataset (Flint lead in water). Instructions for water testing (flush for 3 - 4 minutes before sampling) were intentionally producing false low estimates of lead in the water. But how much of a difference was that making? Today we'll explore some Flint water sampling data to see. 
+
+First, open the Excel file 'flint_pb' in Excel and explore. Notice that it's not very nicely formatted. Let's make a copy FIRST (don't mess with raw data - always make a copy). Then simplify the column names, and save the active sheet (with data) as a .csv. Once you've saved it, drop into your project folder (if you didn't automatically save it there anyway).
+
+I'll rename mine: "sample_id", "zip","ward","pb_1","pb_2","pb_3".
+
+Save the simplified file (csv), then drop it into your project folder. Now it's in your working directory...let's load our packages and data
+
+a. Exploration and wrangling
+
+```{r}
+
+pb <- flint %>% 
+  select(pb_1, pb_3)
+
+summary(pb)
+
+pb1hist <- ggplot(pb, aes(x = pb_1)) +
+  geom_histogram()
+
+pb1qq <- ggplot(pb, aes(sample = pb_1)) +
+  geom_qq()
+
+pb3hist <- ggplot(pb, aes(x = pb_3)) +
+  geom_histogram()
+
+pb3qq <- ggplot(pb, aes(sample = pb_3)) +
+  geom_qq()
+
+ggarrange(pb1hist, pb1qq, pb3hist, pb3qq) # Only do this if they're going to get ggpubr
+
+
+```
+
+# These are really non-normally distributed...why would we still be able to use the t-distribution to compare *means* (assuming that we think *means* is an interesting thing to compare...)
+
+b. T-test
+
+```{r}
+
+flint_t <- t.test(pb$pb_1, pb$pb_3, alternative = "greater", paired = TRUE)
+flint_t
+
+```
+
+Are lead concentrations significantly reduced post-flushing? YES...by a LOT. Post-flushing Pb concentrations are significantly lower than pre-flushing concentrations.
+
+
+
+
