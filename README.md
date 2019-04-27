@@ -13,6 +13,7 @@ Link to Weekly Materials | Lab topics | Packages required | Functions used
 [Week 4 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_4) | <ul><li>In-line referencing in Rmarkdown, </li><li>Baby LaTeX example</li><li>dplyr::case_when, count, pull</li><li>Data exploration and graphing continued</li><li>Two-Sample T-tests (unpaired, one-sided and two-sided)</li><li> F-test for equal variances</li><li>Effect size (Cohen’s d)</li></ul> | Packages | Functions
 [Week 5 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_5) | <ul><li>Power analysis</li><li>Data wrangling</li><li>Pipe directly to ggplot</li><li>Customizing in ggplot2</li><li>Interactive plots with plotly</li><li>Joining datasets with dplyr</li><li>Tables with kable + kableExtra</li></ul> | Packages | Functions
 [Week 6 Materials]() | <ul><li>Intro to GitHub</li><li>Working between RStudio and GitHub: Fork, clone, and start a version-controlled RProj</li><li>More ggplot2 practice and customization</li><li>dplyr::case_when</li><li>One-way ANOVA</li><li>Levene's Test</li><li>Post-hoc Tukey's HSD</li></ul> | Packages | Functions
+[Week 7 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_7)|<ul><li>Intro to version control and collaborating with GitHub</li><li>More data wrangling, tidyr::spread and gather</li><li>Chi-square test for independence</li><li>Rank-based hypothesis tests</li></ul> | Packages | Functions
 
 
 
