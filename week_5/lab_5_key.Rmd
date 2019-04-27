@@ -1,0 +1,226 @@
+---
+title: "Lab Week 5"
+author: "Allison Horst"
+date: "October 26, 2018"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+subtitle: Graphs and tables
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###0. Get packages and data
+
+In this lab, we'll use the following packages:
+
+- tidyverse
+- knitr
+- kableExtra
+- plotly
+- ggrepel
+- extrafont
+
+Recall: alt + command + i for inserting code chunk shortcut
+
+```{r, include = FALSE}
+
+library(tidyverse)
+library(pwr)
+library(knitr)
+library(kableExtra)
+library(plotly)
+library(extrafont)
+library(ggrepel)
+
+mortality <- read_csv("drug_mortality.csv")
+income <- read_csv("state_income.csv")
+
+```
+
+
+Today in lab, we'll be: 
+
+- Power analysis
+- Wrangling
+- Piping directly to ggplot 
+- Creating finalized graphics
+- Interactive plots with plotly
+- Joining data frames (dplyr)
+- A nice table (kable + kableExtra)
+
+
+### 1. Pipe an F-test and a t-test, with in-line references
+
+Check out the built-in dataset chickwts (?chickwts, View(chickwts))
+We want to know, are chicks fed 'horsebean' significantly smaller than those fed 'linseed'?
+
+Remember: if doing this for real, we'd look at histograms, qq-plots, test for equal variances (f-test)
+
+```{r}
+
+chick_ftest <- chickwts %>% 
+  filter(feed == "horsebean" | feed == "linseed") %>% 
+  var.test(weight ~ feed, data = .)
+
+chick_ttest <- chickwts %>%
+  filter(feed == "horsebean" | feed == "linseed") %>% 
+  t.test(weight ~ feed, data = ., alternative = "less") # (check levels(chickwts))
+
+```
+
+Inline summary of results: 
+
+Weights for chicks fed horsebean are significantly lower than those fed linseed (t(`r round(chick_ttest$parameter,2)`) = `r round(chick_ttest$statistic,2)`, *p* = `r round(chick_ttest$p.value, digits = 3)`, $\alpha$ = 0.05).
+
+
+
+### 2. Power Analysis (package 'pwr')
+
+The type of power analysis that you'll do depends on the TEST. Which means that there's a different power calculation for each type of hypothesis test you'll run. 
+
+For example, to find values associated with power for a t-test, you'll use pwr.t.test(), but if you're doing a calculation for an ANOVA, you'll use pwr.anova.test().
+
+Remember, the POWER of a test is the probability that you will detect a significant result if there really is one. It is the complement of committing a Type II Error, $\beta$ (there IS a significant result but you don't detect it). 
+
+First, check out the pwr.t.test() function (make sure 'pwr' package is loaded - if at home, they'll need to install first)
+
+**Example:** You need to collect samples to test a hypothesis that lagoons downstream from golf courses contain higher phosphate concentrations that those not downstream from golf courses. If:
+
+A. you plan to use a two-sample t-test to compare phosphate concentrations, 
+B. your significance level is 0.05,
+C. you want to have a power of 0.80
+
+...then how many samples would you have to collect if there is a SMALL (d ~ 0.2), MODERATE (d ~ 0.5), or LARGE (d ~ 0.8) effect size? First of all, how can we GUESS what the effect size might be if we have *a priori* information? It's *basically* the difference in means divided by the pooled standard deviation. So you could estimate what the effect size will be, or just try endpoints for low and high effect size.
+
+To use pwr.t.test() function, there are four components:
+
+n = sample size
+d = Cohen's d effect size
+sig.level = alpha
+power = power (standard is ~ 0.8)
+
+If you give the function THREE of those things, and set the fourth to NULL, then the fourth thing will be calculated for you.
+
+```{r a_priori_power_calcs}
+
+# Small effect size:
+power_small <- pwr.t.test(n = NULL, d = 0.2, sig.level = 0.05, power = 0.8)
+power_small # ~ 393 samples needed for each group
+
+# Moderate effect size:
+power_moderate <- pwr.t.test(n = NULL, d = 0.5, sig.level = 0.05, power = 0.8)
+power_moderate # ~ 64 amples needed for EACH group
+
+power_large <- pwr.t.test(n = NULL, d = 0.8, sig.level = 0.05, power = 0.8)
+power_large # ~ 25 samples needed for EACH group
+
+```
+
+###3. Pipe to ggplot, highlight one column, interactivity in ggplotly
+
+```{r}
+
+graph_2 <- mortality %>% 
+  filter(year == 2015, 
+         ages == "All Ages", 
+         sex == "Both Sexes", 
+         race_and_hispanic_origin == "All Races-All Origins", 
+         state != "United States") %>% 
+  mutate(highlight = ifelse(state == "Kentucky", "Yes", "No")) %>%
+  arrange(-death_rate) %>% 
+  head(10) %>% 
+    ggplot(aes(x = reorder(state, death_rate), y = death_rate)) +
+    geom_col(aes(fill = highlight)) +
+    labs(x = "", 
+         y = "Drug-related death rates (2015)\n(deaths per 100,000 people)",
+         title = "United States Drug-Related Mortality Rates",
+         subtitle = "10 Highest Mortality Rates (2015)") +
+    theme_classic() +
+    scale_y_continuous(expand = c(0,0), 
+                       limits = c(0,40), 
+                       breaks = seq(0,40,by = 10)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+          axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 20)),
+          legend.position = "none",
+          text = element_text(family = "Times New Roman")) +
+    scale_fill_manual(values = c("gray60","red"))
+
+graph_2
+
+# Use ggplotly to make it interactive
+# Use tooltip to specify what you want to show up in the hovering menu (this can be customized, we'll just do simple customization here...)
+
+ggplotly(graph_2, tooltip = "y")
+
+```
+
+Figure 1. Highest 10 drug-related mortality rates (deaths per 100,000 people) by state in 2015. Data from the Center for Disease Control [1].    
+
+###4. Join (dplyr), annotation, labels, customization continued
+
+We can use the ggrepel package (an add-on for ggplot) to add text labels to a graph and avoid overlapping labels. 
+
+```{r, message = FALSE}
+
+deaths_2015 <- mortality %>% 
+    filter(year == 2015, 
+         ages == "All Ages", 
+         sex == "Both Sexes", 
+         race_and_hispanic_origin == "All Races-All Origins")
+
+# Make sure to look at the 'income' data frame
+
+deaths_income <- full_join(deaths_2015, income) %>% 
+  select(state, death_rate, med_income, population)
+
+# Make a simple scatterplot of median income v. death rate
+# Do with all states first, then show subsetting option within the ggplot line
+
+death_income_scatter <- ggplot(filter(deaths_income, med_income > 60000), 
+                               aes(x = med_income, 
+                                   y = death_rate, 
+                                   label = state)) +
+  geom_point(aes(size = population, color = state), alpha = 0.7) +
+  # geom_text() Try this first - show that they all overlap (centered over points)
+  labs(x = "2016 Median Household Income (USD)", y = "Drug Related Death Rate (deaths per 100,000)") +
+  geom_text_repel(size = 3, color = "gray50") +
+  theme_classic() +
+  theme(legend.position = "none") 
+  
+
+death_income_scatter
+
+# ggplotly(death_income_scatter) # Note: ggrepel doesn't exist in plotly yet! 
+```
+
+
+###5. A finalized summary table (using kable and kableExtra)
+
+```{r}
+
+ca_table <- mortality %>% 
+  filter(year >= 2010,
+         state == "California", 
+         ages == "All Ages", 
+         sex == "Both Sexes", 
+         race_and_hispanic_origin == "All Races-All Origins") %>% 
+  select(year, deaths, population, death_rate)
+
+# Make a table
+# striped makes stripes (gray background rows)
+# hover will highlight the row you're on 
+# condensed makes row height smaller
+ca_final <- kable(ca_table,
+                  col.names = c("Year","Deaths","Population","Death Rate")) %>% 
+   kable_styling(bootstrap_options = c("striped","hover"), 
+                full_width = FALSE) %>% 
+                row_spec(row = 4, bold = T, color = "magenta", background = "yellow") %>% 
+  column_spec(column = 4, bold = T, color = "purple")
+
+ca_final
+
+```
