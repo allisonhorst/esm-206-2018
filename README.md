@@ -16,7 +16,4 @@ Link to Weekly Materials | Lab topics | Packages required | Functions used
 [Week 7 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_7)|<ul><li>Collaborating in GitHub example</li><li>More data wrangling, tidyr::spread and gather</li><li>Chi-square test for independence</li><li>Rank-based hypothesis tests</li></ul> | Packages | Functions
 [Week 8 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_8)|<ul><li>**This was your TAKE HOME lab**</li><li>Exploratory data analysis</li><li>Simple linear regression</li><li>Model diagnostics</li><li>Model fit and statistics</li><li>Use model to make predictions</li><li>Correlation by Pearson's *r*</li></ul> | Packages | Functions
 [Week 9 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_9)|<ul><li>Explore multivariate data</li><li>Correlation matrices</li><li>Multiple linear regression</li><li>Assess model diagnostics</li><li>Compare models, AIC</li><li>Table of regression results (stargazer)</li><li>Use model to make predictions</li></ul> | Packages | Functions
-
-
-
-
+[Week 10 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_10)|<ul><li>Other fun tips</li><li>Heatmaps with geom_tile</li><li>Animated graphics with gganimate</li></ul> | Packages | Functions
