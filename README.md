@@ -1,4 +1,4 @@
-# ESM 206 - Intro Stats and Data Analysis for Environmental Science (Fall 2018)
+# ESM 206 Labs - Intro Stats and Data Analysis for Environmental Science (Fall 2018)
 ## Lab Materials
 
 Bren School of Environmental Science and Management, UC Santa Barbara 
