@@ -15,4 +15,8 @@ Link to Weekly Materials | Lab topics | Packages required | Functions used
 [Week 6 Materials]() | <ul><li>Intro to GitHub</li><li>Working between RStudio and GitHub: Fork, clone, and start a version-controlled RProj</li><li>More ggplot2 practice and customization</li><li>dplyr::case_when</li><li>One-way ANOVA</li><li>Levene's Test</li><li>Post-hoc Tukey's HSD</li></ul> | Packages | Functions
 [Week 7 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_7)|<ul><li>Collaborating in GitHub example</li><li>More data wrangling, tidyr::spread and gather</li><li>Chi-square test for independence</li><li>Rank-based hypothesis tests</li></ul> | Packages | Functions
 [Week 8 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_8)|<ul><li>**This was your TAKE HOME lab**</li><li>Exploratory data analysis</li><li>Simple linear regression</li><li>Model diagnostics</li><li>Model fit and statistics</li><li>Use model to make predictions</li><li>Correlation by Pearson's *r*</li></ul> | Packages | Functions
+[Week 9 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_9)|<ul><li>Explore multivariate data</li><li>Correlation matrices</li><li>Multiple linear regression</li><li>Assess model diagnostics</li><li>Compare models, AIC</li><li>Table of regression results (stargazer)</li><li>Use model to make predictions</li></ul> | Packages | Functions
+
+
+
 
