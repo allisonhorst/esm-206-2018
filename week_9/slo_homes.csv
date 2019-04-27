@@ -1,0 +1,782 @@
+City,Price,Bedrooms,Bathrooms,SqFt,PricePerSqFt,Status
+Arroyo Grande,795000,3,3,2371,335.3,Short Sale
+Paso Robles,399000,4,3,2818,141.59,Short Sale
+Paso Robles,545000,4,3,3032,179.75,Short Sale
+Morro Bay,909000,4,4,3540,256.78,Short Sale
+Santa Maria-Orcutt,109900,3,1,1249,87.99,Short Sale
+Oceano,324900,3,3,1800,180.5,Short Sale
+Santa Maria-Orcutt,192900,4,2,1603,120.34,Short Sale
+Santa Maria-Orcutt,215000,3,2,1450,148.28,Short Sale
+Morro Bay,999000,4,3,3360,297.32,Short Sale
+Atascadero,319000,3,2,1323,241.12,Short Sale
+Santa Maria-Orcutt,350000,3,2,1750,200,Short Sale
+Santa Maria-Orcutt,249000,3,2,1400,177.86,Short Sale
+Arroyo Grande,299000,2,2,1257,237.87,Short Sale
+Santa Maria-Orcutt,235900,3,2,1400,168.5,Short Sale
+Santa Maria-Orcutt,348000,3,2,1600,217.5,Short Sale
+Paso Robles,314000,4,3,1794,175.03,Short Sale
+Los Alamos,399000,4,2,1850,215.68,Short Sale
+San Miguel,599000,3,3,2950,203.05,Short Sale
+Paso Robles,299000,3,2,1719,173.94,Short Sale
+San Luis Obispo,425000,3,3,1472,288.72,Short Sale
+Morro Bay,1100000,4,3,4168,263.92,Short Sale
+Cayucos,1500000,3,3,3880,386.6,Short Sale
+Santa Maria-Orcutt,110000,2,1,1000,110,Short Sale
+Santa Maria-Orcutt,200000,3,2,1139,175.59,Short Sale
+Santa Maria-Orcutt,134900,3,1,1080,124.91,Short Sale
+Santa Maria-Orcutt,250000,4,3,2000,125,Short Sale
+Pismo Beach,950000,3,4,1920,494.79,Short Sale
+Santa Maria-Orcutt,239950,4,2,1348,178,Short Sale
+Santa Maria-Orcutt,170000,3,2,1280,132.81,Short Sale
+Santa Maria-Orcutt,285000,3,2,2400,118.75,Short Sale
+Santa Maria-Orcutt,279000,3,3,1700,164.12,Short Sale
+Santa Maria-Orcutt,219000,3,2,1600,136.88,Short Sale
+Santa Maria-Orcutt,155000,3,2,1050,147.62,Short Sale
+Atascadero,389000,3,2,1415,274.91,Short Sale
+Nipomo,340000,3,1,1110,306.31,Short Sale
+Guadalupe,95000,2,1,797,119.2,Short Sale
+Santa Maria-Orcutt,140000,2,2,1100,127.27,Short Sale
+Pismo Beach,1100000,3,3,2602,422.75,Short Sale
+Santa Maria-Orcutt,360000,4,3,2351,153.13,Short Sale
+Morro Bay,415000,3,3,1350,307.41,Short Sale
+Santa Maria-Orcutt,250000,4,2,1206,207.3,Short Sale
+Santa Maria-Orcutt,559000,3,3,2628,212.71,Short Sale
+Nipomo,525000,3,3,2365,221.99,Short Sale
+Los Osos,779000,3,3,2990,260.54,Short Sale
+Arroyo Grande,595000,3,2,1750,340,Short Sale
+Templeton,1150000,4,5,5500,209.09,Short Sale
+Templeton,550000,3,2,1852,296.98,Short Sale
+Grover Beach,500000,3,2,2100,238.1,Short Sale
+Santa Maria-Orcutt,279000,4,3,2580,108.14,Short Sale
+Santa Maria-Orcutt,375000,4,2,1963,191.03,Short Sale
+Santa Maria-Orcutt,330000,3,3,1900,173.68,Short Sale
+Santa Maria-Orcutt,199000,3,3,1450,137.24,Short Sale
+Santa Maria-Orcutt,165000,2,2,1000,165,Short Sale
+Templeton,1399000,4,3,6500,215.23,Foreclosure
+Santa Maria-Orcutt,255000,3,2,1218,209.36,Short Sale
+Cambria,325000,2,2,893,363.94,Short Sale
+Morro Bay,789000,3,3,2100,375.71,Foreclosure
+Nipomo,498000,4,3,2341,212.73,Short Sale
+Nipomo,430000,4,2,2168,198.34,Short Sale
+Paso Robles,539900,4,3,3032,178.07,Short Sale
+Pismo Beach,499000,3,2,1293,385.92,Short Sale
+Los Osos,275000,3,2,1200,229.17,Short Sale
+Santa Maria-Orcutt,499000,3,4,2250,221.78,Short Sale
+Morro Bay,899000,3,3,2430,369.96,Foreclosure
+Morro Bay,1045000,3,3,2100,497.62,Foreclosure
+Morro Bay,774000,2,2,1550,499.35,Foreclosure
+Santa Maria-Orcutt,239000,3,3,1800,132.78,Short Sale
+Santa Maria-Orcutt,195000,3,2,1218,160.1,Short Sale
+Grover Beach,325000,2,1,768,423.18,Short Sale
+Nipomo,320000,4,2,1929,165.89,Short Sale
+Santa Maria-Orcutt,275000,4,3,1877,146.51,Short Sale
+Paso Robles,329000,3,2,1700,193.53,Short Sale
+Santa Maria-Orcutt,140000,3,2,1080,129.63,Short Sale
+Paso Robles,409000,4,3,2192,186.59,Short Sale
+Santa Maria-Orcutt,167900,3,2,1296,129.55,Foreclosure
+Nipomo,325000,7,5,2688,120.91,Short Sale
+Santa Maria-Orcutt,119000,1,1,900,132.22,Short Sale
+Santa Maria-Orcutt,245000,4,2,1482,165.32,Short Sale
+Santa Maria-Orcutt,259900,3,2,1726,150.58,Short Sale
+Arroyo Grande,495000,3,2,1486,333.11,Short Sale
+San Luis Obispo,399000,4,2,1543,258.59,Short Sale
+Santa Maria-Orcutt,329700,4,2,1367,241.19,Short Sale
+Atascadero,199000,1,1,712,279.49,Short Sale
+Santa Maria-Orcutt,149000,3,2,1040,143.27,Short Sale
+Paso Robles,225000,3,2,1456,154.53,Short Sale
+Santa Maria-Orcutt,195000,2,1,811,240.44,Short Sale
+Paso Robles,359900,3,3,1951,184.47,Short Sale
+Templeton,799000,4,4,3100,257.74,Short Sale
+San Luis Obispo,595000,3,2,2117,281.06,Short Sale
+Paso Robles,89000,3,2,1560,57.05,Short Sale
+Santa Maria-Orcutt,129900,3,1,1042,124.66,Short Sale
+Los Osos,375000,3,3,1519,246.87,Short Sale
+Atascadero,599000,3,2,2774,215.93,Short Sale
+Paso Robles,235000,3,2,1340,175.37,Short Sale
+Santa Maria-Orcutt,255900,3,2,1440,177.71,Foreclosure
+Santa Maria-Orcutt,148900,5,2,1064,139.94,Short Sale
+Arroyo Grande,749000,3,2,2145,349.18,Short Sale
+Santa Maria-Orcutt,189900,3,2,1472,129.01,Foreclosure
+Paso Robles,183000,3,1,888,206.08,Short Sale
+Santa Maria-Orcutt,232600,3,3,1582,147.03,Short Sale
+Cambria,520000,3,2,1680,309.52,Short Sale
+Solvang,355000,3,3,1702,208.58,Foreclosure
+Pismo Beach,275000,0,1,398,690.95,Short Sale
+Santa Maria-Orcutt,225000,4,3,1940,115.98,Short Sale
+Santa Maria-Orcutt,161900,3,2,1200,134.92,Short Sale
+Santa Maria-Orcutt,249999,3,3,2013,124.19,Short Sale
+Santa Maria-Orcutt,208000,2,1,1267,164.17,Short Sale
+Guadalupe,135000,3,1,1100,122.73,Short Sale
+San Luis Obispo,385000,2,3,1389,277.18,Short Sale
+Atascadero,750000,4,4,3387,221.43,Foreclosure
+Atascadero,810000,4,3,3305,245.08,Foreclosure
+Atascadero,890000,4,5,4229,210.45,Foreclosure
+Atascadero,895000,4,3,3676,243.47,Foreclosure
+San Miguel,229900,3,2,1458,157.68,Short Sale
+Grover Beach,240000,2,2,1020,235.29,Short Sale
+Atascadero,429000,4,3,2513,170.71,Foreclosure
+Santa Maria-Orcutt,399000,4,3,2800,142.5,Short Sale
+Santa Maria-Orcutt,385000,3,2,2000,192.5,Short Sale
+Paso Robles,294900,3,2,1316,224.09,Foreclosure
+Paso Robles,399000,3,2,1220,327.05,Short Sale
+Santa Maria-Orcutt,269000,3,3,1780,151.12,Short Sale
+Cambria,449000,3,3,2120,211.79,Short Sale
+Arroyo Grande,555900,5,3,2947,188.63,Foreclosure
+Paso Robles,319900,4,2,2135,149.84,Foreclosure
+Cambria,332000,4,4,1872,177.35,Foreclosure
+Bradley,499000,4,5,3400,146.76,Short Sale
+Paso Robles,432000,4,3,3113,138.77,Short Sale
+Arroyo Grande,199000,2,1,827,240.63,Short Sale
+Santa Maria-Orcutt,29000,2,2,1500,19.33,Foreclosure
+Atascadero,299000,3,2,1270,235.43,Short Sale
+Santa Maria-Orcutt,259000,4,3,1857,139.47,Short Sale
+Los Osos,99000,1,1,538,184.01,Short Sale
+Avila Beach,779000,2,2,1223,636.96,Foreclosure
+Avila Beach,839000,2,2,1223,686.02,Foreclosure
+Santa Ynez,525000,3,2,1746,300.69,Short Sale
+Santa Ynez,795000,3,2,2092,380.02,Short Sale
+Santa Maria-Orcutt,337000,4,2,2000,168.5,Short Sale
+Oceano,164900,2,1,750,219.87,Foreclosure
+San Luis Obispo,449000,2,3,1650,272.12,Short Sale
+Guadalupe,94000,2,2,797,117.94,Foreclosure
+Pismo Beach,899000,3,3,2266,396.73,Short Sale
+Santa Maria-Orcutt,180000,3,2,1280,140.63,Short Sale
+Bradley,194900,3,2,1092,178.48,Foreclosure
+Los Osos,350000,3,2,1509,231.94,Short Sale
+King City,167770,3,3,1793,93.57,Foreclosure
+Creston,309900,3,2,1705,181.76,Foreclosure
+Templeton,479000,2,3,2100,228.1,Short Sale
+Los Alamos,350000,3,2,1582,221.24,Short Sale
+Grover Beach,350000,3,2,1470,238.1,Short Sale
+Santa Maria-Orcutt,275000,3,2,1424,193.12,Short Sale
+Paso Robles,379000,4,3,2277,166.45,Short Sale
+King City,155900,4,2,3368,46.29,Foreclosure
+San Miguel,229000,3,2,1458,157.06,Short Sale
+Pismo Beach,604995,2,3,1749,345.91,Foreclosure
+Pismo Beach,599000,3,3,1996,300.1,Short Sale
+Morro Bay,359000,3,2,1008,356.15,Short Sale
+Lompoc,199000,4,2,1527,130.32,Foreclosure
+Paso Robles,164900,3,2,1440,114.51,Short Sale
+Coalinga,179000,3,2,1815,98.62,Short Sale
+Paso Robles,370000,4,2,2064,179.26,Short Sale
+Santa Ynez,999000,5,4,2402,415.9,Short Sale
+Paso Robles,365000,3,3,2136,170.88,Short Sale
+San Miguel,345000,3,2,1498,230.31,Short Sale
+Paso Robles,299000,2,1,1068,279.96,Short Sale
+Pismo Beach,519500,2,1,634,819.4,Short Sale
+Buellton,645000,4,4,3000,215,Short Sale
+Santa Maria-Orcutt,242500,3,2,1218,199.1,Foreclosure
+Santa Maria-Orcutt,259900,3,3,1300,199.92,Short Sale
+Santa Maria-Orcutt,310000,4,3,2014,153.92,Short Sale
+Atascadero,450000,2,2,1463,307.59,Short Sale
+Santa Maria-Orcutt,220000,2,2,1541,142.76,Short Sale
+San Luis Obispo,585000,3,2,1268,461.36,Short Sale
+Santa Maria-Orcutt,324000,5,4,2400,135,Short Sale
+Cambria,375000,1,1,551,680.58,Short Sale
+Paso Robles,329000,3,2,1420,231.69,Short Sale
+Paso Robles,599900,5,3,2764,217.04,Foreclosure
+Santa Maria-Orcutt,74900,2,2,1014,73.87,Short Sale
+Los Osos,285000,3,2,1120,254.46,Short Sale
+Santa Maria-Orcutt,751900,3,3,3400,221.15,Foreclosure
+Santa Maria-Orcutt,295000,3,2,1386,212.84,Short Sale
+Coalinga,170000,3,2,1320,128.79,Short Sale
+Santa Maria-Orcutt,197000,3,2,1376,143.17,Short Sale
+Oceano,1250000,3,3,2586,483.37,Short Sale
+Paso Robles,249000,3,2,1662,149.82,Short Sale
+Nipomo,179000,2,2,1033,173.28,Short Sale
+Santa Maria-Orcutt,132000,3,1,1050,125.71,Short Sale
+Lockwood,425000,3,2,1500,283.33,Short Sale
+Santa Maria-Orcutt,290000,5,3,2500,116,Short Sale
+Los Osos,150000,2,2,896,167.41,Short Sale
+Los Osos,150000,2,2,896,167.41,Short Sale
+Los Osos,150000,2,2,896,167.41,Short Sale
+Los Osos,150000,2,2,896,167.41,Short Sale
+Los Osos,150000,2,2,896,167.41,Short Sale
+Los Osos,205000,2,2,1388,147.69,Short Sale
+Atascadero,599000,4,3,3120,191.99,Short Sale
+Paso Robles,269000,3,3,1352,198.96,Short Sale
+Santa Maria-Orcutt,249000,4,3,1963,126.85,Short Sale
+Santa Maria-Orcutt,235000,3,3,1541,152.5,Short Sale
+Grover Beach,469000,4,3,2449,191.51,Foreclosure
+Nipomo,159000,4,2,1660,95.78,Short Sale
+King City,69900,3,1,936,74.68,Foreclosure
+Arroyo Grande,1499000,5,7,6800,220.44,Short Sale
+Atascadero,239000,3,2,1022,233.86,Short Sale
+Atascadero,399500,3,2,1665,239.94,Short Sale
+Paso Robles,299900,3,2,1209,248.06,Foreclosure
+Lompoc,275000,3,2,1700,161.76,Short Sale
+Morro Bay,395000,4,2,1736,227.53,Short Sale
+Santa Maria-Orcutt,105000,1,1,731,143.64,Short Sale
+Santa Maria-Orcutt,179999,3,2,1086,165.74,Short Sale
+Santa Maria-Orcutt,219000,3,2,1131,193.63,Short Sale
+Solvang,325000,3,3,1500,216.67,Short Sale
+Atascadero,829900,4,3,3827,216.85,Short Sale
+Santa Maria-Orcutt,165000,2,1,1100,150,Short Sale
+Santa Maria-Orcutt,179000,3,2,1398,128.04,Short Sale
+Paso Robles,279000,3,2,1381,202.03,Short Sale
+Atascadero,820000,4,4,3387,242.1,Foreclosure
+Paso Robles,399000,2,1,1250,319.2,Short Sale
+San Miguel,164900,3,1,965,170.88,Short Sale
+Santa Maria-Orcutt,235000,4,2,1860,126.34,Short Sale
+Arroyo Grande,1900000,4,5,5411,351.14,Short Sale
+Nipomo,289000,3,2,1367,211.41,Short Sale
+Paso Robles,355000,3,2,1640,216.46,Short Sale
+Santa Maria-Orcutt,199000,3,2,1269,156.82,Short Sale
+Santa Maria-Orcutt,209000,3,2,1275,163.92,Short Sale
+Lompoc,186900,3,1,912,204.93,Foreclosure
+Santa Maria-Orcutt,240000,4,2,1460,164.38,Short Sale
+Nipomo,515000,2,2,2000,257.5,Short Sale
+Santa Maria-Orcutt,215000,4,2,1750,122.86,Short Sale
+Santa Maria-Orcutt,399900,4,4,3050,131.11,Short Sale
+Paso Robles,369000,4,3,2371,155.63,Short Sale
+Paso Robles,250000,2,2,1292,193.5,Short Sale
+Paso Robles,259000,3,2,1640,157.93,Short Sale
+Santa Maria-Orcutt,180000,2,2,1082,166.36,Short Sale
+Solvang,399900,3,2,1522,262.75,Short Sale
+Arroyo Grande,385000,3,2,1535,250.81,Short Sale
+Santa Maria-Orcutt,154000,2,2,1100,140,Short Sale
+San Luis Obispo,254900,2,2,966,263.87,Foreclosure
+Paso Robles,315000,4,2,1653,190.56,Short Sale
+Santa Maria-Orcutt,437500,3,3,2523,173.4,Short Sale
+Santa Maria-Orcutt,299900,3,3,2511,119.43,Short Sale
+Arroyo Grande,399000,3,3,1772,225.17,Short Sale
+Paso Robles,330000,3,3,1889,174.7,Short Sale
+Arroyo Grande,279000,2,2,880,317.05,Short Sale
+Santa Maria-Orcutt,248000,3,2,1400,177.14,Short Sale
+Santa Maria-Orcutt,209000,3,3,1494,139.89,Short Sale
+Los Osos,729000,3,2,1844,395.34,Short Sale
+Atascadero,454500,4,3,1900,239.21,Foreclosure
+Paso Robles,249000,3,2,1176,211.73,Short Sale
+Nipomo,1700000,3,5,4463,380.91,Short Sale
+Grover Beach,349000,3,2,1635,213.46,Short Sale
+Grover Beach,575000,3,3,2095,274.46,Short Sale
+Santa Maria-Orcutt,185000,3,2,1300,142.31,Short Sale
+Santa Maria-Orcutt,165000,3,2,1200,137.5,Short Sale
+Morro Bay,311900,0,1,910,342.75,Foreclosure
+Santa Maria-Orcutt,175000,3,2,1600,109.38,Short Sale
+Lompoc,180000,4,2,1332,135.14,Short Sale
+Santa Maria-Orcutt,78000,2,2,1680,46.43,Short Sale
+Oceano,142900,2,1,1313,108.83,Foreclosure
+Atascadero,850000,4,4,3744,227.03,Foreclosure
+Paso Robles,389000,3,2,1998,194.69,Short Sale
+Santa Maria-Orcutt,641900,3,3,2714,236.51,Foreclosure
+Templeton,305000,4,2,1797,169.73,Short Sale
+Paso Robles,260000,3,3,1687,154.12,Short Sale
+Paso Robles,320000,3,2,1663,192.42,Short Sale
+Atascadero,199000,2,1,792,251.26,Short Sale
+Santa Maria-Orcutt,299000,2,2,1410,212.06,Short Sale
+Buellton,289000,2,2,1085,266.36,Short Sale
+Santa Maria-Orcutt,229900,3,3,1900,121,Short Sale
+Atascadero,865000,4,3,3305,261.72,Foreclosure
+Atascadero,900000,4,4,3962,227.16,Short Sale
+Atascadero,199000,2,3,1260,157.94,Short Sale
+Santa Maria-Orcutt,160000,2,3,1200,133.33,Short Sale
+Santa Maria-Orcutt,299000,3,3,2400,124.58,Short Sale
+Oceano,300000,3,3,1265,237.15,Short Sale
+Santa Maria-Orcutt,270000,4,2,1460,184.93,Short Sale
+Nipomo,490000,3,3,1894,258.71,Short Sale
+Santa Maria-Orcutt,295000,3,3,1800,163.89,Short Sale
+Paso Robles,225000,3,2,1550,145.16,Short Sale
+Atascadero,324900,2,2,1426,227.84,Short Sale
+Santa Maria-Orcutt,165000,3,2,1110,148.65,Short Sale
+Santa Maria-Orcutt,157900,3,2,1075,146.88,Short Sale
+Nipomo,299000,3,2,1756,170.27,Short Sale
+Paso Robles,369000,3,3,2150,171.63,Short Sale
+Santa Maria-Orcutt,233000,4,2,1650,141.21,Short Sale
+Santa Maria-Orcutt,109900,2,2,1200,91.58,Foreclosure
+Paso Robles,309000,3,2,1488,207.66,Short Sale
+Pismo Beach,1799000,4,4,3609,498.48,Foreclosure
+Santa Maria-Orcutt,209900,2,2,1113,188.59,Short Sale
+Solvang,499000,3,2,1600,311.88,Short Sale
+Arroyo Grande,525000,4,2,1961,267.72,Short Sale
+Los Osos,650000,3,3,3249,200.06,Short Sale
+Morro Bay,529000,3,3,1510,350.33,Short Sale
+Santa Maria-Orcutt,179000,3,2,1300,137.69,Short Sale
+Lompoc,282000,3,3,1736,162.44,Short Sale
+Templeton,899000,4,3,3008,298.87,Short Sale
+Santa Maria-Orcutt,130000,3,2,1850,70.27,Short Sale
+Santa Maria-Orcutt,205000,3,2,1146,178.88,Short Sale
+Santa Maria-Orcutt,180900,2,2,1100,164.45,Short Sale
+Atascadero,409900,4,4,2135,191.99,Short Sale
+Atascadero,409900,4,4,2135,191.99,Short Sale
+Grover Beach,469000,3,2,1827,256.7,Short Sale
+Arroyo Grande,289000,3,1,1005,287.56,Short Sale
+Santa Maria-Orcutt,99999,2,3,1800,55.56,Short Sale
+Santa Maria-Orcutt,445000,5,3,3307,134.56,Foreclosure
+Atascadero,640000,3,3,2160,296.3,Short Sale
+San Miguel,185000,3,2,1062,174.2,Short Sale
+Santa Maria-Orcutt,210000,4,2,1102,190.56,Short Sale
+Santa Maria-Orcutt,199900,3,2,1215,164.53,Short Sale
+Santa Maria-Orcutt,225000,3,2,1600,140.63,Short Sale
+Paso Robles,369900,4,2,2161,171.17,Foreclosure
+Santa Maria-Orcutt,120000,3,2,1686,71.17,Short Sale
+Paso Robles,199000,2,1,1000,199,Short Sale
+Arroyo Grande,520000,3,3,2600,200,Short Sale
+Paso Robles,579000,5,3,3150,183.81,Foreclosure
+Santa Maria-Orcutt,300000,4,2,1257,238.66,Short Sale
+Arroyo Grande,325000,3,2,1171,277.54,Short Sale
+Santa Maria-Orcutt,225000,3,2,1144,196.68,Short Sale
+Atascadero,395000,2,1,1160,340.52,Short Sale
+Santa Maria-Orcutt,399000,4,3,2300,173.48,Short Sale
+Lompoc,165000,3,2,1144,144.23,Short Sale
+Arroyo Grande,374900,3,2,1368,274.05,Short Sale
+Santa Maria-Orcutt,199900,3,2,1238,161.47,Short Sale
+Arroyo Grande,365000,3,1,1056,345.64,Short Sale
+Santa Maria-Orcutt,222900,2,2,1086,205.25,Short Sale
+Los Osos,249900,2,1,720,347.08,Foreclosure
+Paso Robles,290000,3,2,1426,203.37,Short Sale
+Santa Maria-Orcutt,170500,4,2,1361,125.28,Short Sale
+Atascadero,560000,3,3,2344,238.91,Short Sale
+Nipomo,339900,4,2,1925,176.57,Short Sale
+Nipomo,550000,4,3,2600,211.54,Short Sale
+San Miguel,269900,4,2,1601,168.58,Short Sale
+Paso Robles,350000,3,2,1395,250.9,Short Sale
+Los Osos,214000,2,2,1042,205.37,Foreclosure
+Santa Maria-Orcutt,299900,3,2,1200,249.92,Short Sale
+Nipomo,139500,2,2,1248,111.78,Foreclosure
+Lompoc,360000,4,3,3000,120,Short Sale
+Paso Robles,315000,3,2,1300,242.31,Short Sale
+Paso Robles,279900,3,2,1244,225,Foreclosure
+Paso Robles,399000,4,2,2139,186.54,Short Sale
+Atascadero,475000,4,3,2450,193.88,Short Sale
+Santa Maria-Orcutt,65900,2,2,840,78.45,Foreclosure
+Coalinga,212000,4,3,1878,112.89,Short Sale
+San Miguel,180000,3,2,1350,133.33,Short Sale
+Santa Maria-Orcutt,210000,4,2,1377,152.51,Short Sale
+Buellton,375000,3,3,1475,254.24,Short Sale
+Atascadero,106900,2,2,894,119.57,Foreclosure
+Paso Robles,221830,3,2,1550,143.12,Short Sale
+Nipomo,239000,3,2,1106,216.09,Short Sale
+Atascadero,187500,1,1,594,315.66,Short Sale
+Los Alamos,445000,5,3,3200,139.06,Short Sale
+Santa Maria-Orcutt,309000,3,2,1906,162.12,Short Sale
+Santa Maria-Orcutt,315000,3,2,2004,157.19,Short Sale
+Santa Maria-Orcutt,191100,3,1,1200,159.25,Foreclosure
+Cambria,699900,5,3,1818,384.98,Foreclosure
+Nipomo,189500,2,2,1040,182.21,Short Sale
+Santa Maria-Orcutt,199000,4,2,1400,142.14,Short Sale
+Santa Maria-Orcutt,359000,4,3,2209,162.52,Short Sale
+Atascadero,264450,3,1,1030,256.75,Short Sale
+Templeton,459000,3,2,1999,229.61,Short Sale
+Santa Maria-Orcutt,150000,3,2,1316,113.98,Short Sale
+Pismo Beach,875000,3,3,2200,397.73,Short Sale
+Pismo Beach,599000,2,2,1200,499.17,Short Sale
+Atascadero,250000,3,3,1261,198.26,Short Sale
+Lompoc,165000,3,2,1120,147.32,Short Sale
+Santa Maria-Orcutt,229900,4,3,1857,123.8,Short Sale
+Santa Maria-Orcutt,229900,3,2,1400,164.21,Short Sale
+Paso Robles,269900,3,2,1139,236.96,Short Sale
+Santa Maria-Orcutt,245000,5,3,6098,40.18,Short Sale
+Santa Maria-Orcutt,165000,3,2,1300,126.92,Short Sale
+Lompoc,429000,3,3,2041,210.19,Short Sale
+Santa Maria-Orcutt,309900,4,3,2248,137.86,Short Sale
+Arroyo Grande,265000,2,1,972,272.63,Foreclosure
+Santa Maria-Orcutt,169900,4,2,1500,113.27,Short Sale
+Santa Maria-Orcutt,380900,3,2,2000,190.45,Short Sale
+Santa Maria-Orcutt,315000,4,3,1939,162.45,Short Sale
+Lompoc,260000,3,2,1413,184.01,Short Sale
+Santa Maria-Orcutt,119900,3,2,1312,91.39,Short Sale
+Santa Maria-Orcutt,211500,3,2,1275,165.88,Foreclosure
+Santa Maria-Orcutt,149000,2,1,854,174.47,Short Sale
+San Luis Obispo,890000,3,3,3474,256.19,Short Sale
+Cambria,289900,3,2,1380,210.07,Foreclosure
+Santa Maria-Orcutt,289000,4,3,2100,137.62,Short Sale
+Oceano,399900,3,2,1487,268.93,Short Sale
+Santa Maria-Orcutt,125000,3,2,900,138.89,Short Sale
+Nipomo,359900,5,3,3036,118.54,Short Sale
+Santa Maria-Orcutt,239000,3,3,1800,132.78,Short Sale
+Santa Maria-Orcutt,199900,3,3,1600,124.94,Short Sale
+Santa Maria-Orcutt,179900,4,3,2150,83.67,Short Sale
+Santa Maria-Orcutt,195000,3,2,1300,150,Short Sale
+San Luis Obispo,299000,2,2,896,333.71,Foreclosure
+Santa Maria-Orcutt,265000,2,3,1700,155.88,Short Sale
+Nipomo,699000,3,2,1700,411.18,Foreclosure
+Grover Beach,275000,2,2,1194,230.32,Short Sale
+Paso Robles,169990,3,2,1465,116.03,Foreclosure
+Santa Maria-Orcutt,189000,3,3,1530,123.53,Short Sale
+Santa Ynez,695000,4,2,2032,342.03,Foreclosure
+Santa Maria-Orcutt,105000,2,2,1088,96.51,Short Sale
+Santa Maria-Orcutt,365000,4,4,4000,91.25,Short Sale
+Paso Robles,335900,3,3,1296,259.18,Foreclosure
+Lompoc,170000,3,2,944,180.08,Short Sale
+Santa Maria-Orcutt,339900,4,2,2100,161.86,Short Sale
+Santa Maria-Orcutt,359900,3,3,2340,153.8,Short Sale
+Santa Maria-Orcutt,143000,3,2,1080,132.41,Short Sale
+Santa Maria-Orcutt,199000,3,2,1196,166.39,Short Sale
+San Luis Obispo,374800,3,3,1365,274.58,Short Sale
+Los Osos,499000,3,2,2120,235.38,Short Sale
+Atascadero,138900,2,1,1055,131.66,Foreclosure
+Avila Beach,1999000,4,5,5307,376.67,Short Sale
+Paso Robles,359000,3,2,1774,202.37,Short Sale
+Santa Maria-Orcutt,294900,4,2,1856,158.89,Short Sale
+Atascadero,299500,4,2,1836,163.13,Foreclosure
+Santa Maria-Orcutt,427900,4,3,2367,180.78,Short Sale
+Nipomo,269000,3,2,1181,227.77,Short Sale
+Bradley,449000,3,3,2563,175.19,Short Sale
+Santa Maria-Orcutt,144900,2,2,1130,128.23,Foreclosure
+Santa Maria-Orcutt,345000,3,3,2020,170.79,Short Sale
+Paso Robles,239000,4,2,1240,192.74,Short Sale
+Los Osos,310000,2,1,780,397.44,Short Sale
+Santa Maria-Orcutt,225000,3,3,1800,125,Short Sale
+Paso Robles,695000,5,6,3750,185.33,Short Sale
+Nipomo,242500,3,3,1650,146.97,Short Sale
+Arroyo Grande,249250,2,1,728,342.38,Short Sale
+Grover Beach,479000,3,2,1462,327.63,Short Sale
+Lompoc,169900,3,2,1150,147.74,Foreclosure
+Santa Maria-Orcutt,219900,3,3,1660,132.47,Short Sale
+Paso Robles,150000,2,2,1440,104.17,Short Sale
+Nipomo,649000,4,2,1814,357.77,Foreclosure
+Santa Maria-Orcutt,285000,4,3,2100,135.71,Short Sale
+Paso Robles,163999,3,2,1488,110.21,Short Sale
+Nipomo,349000,4,2,1718,203.14,Short Sale
+Buellton,409900,3,2,1716,238.87,Foreclosure
+Los Osos,275000,3,2,1320,208.33,Short Sale
+Santa Maria-Orcutt,179900,3,2,1200,149.92,Foreclosure
+Oceano,789000,3,3,2218,355.73,Short Sale
+Santa Maria-Orcutt,299000,4,3,1768,169.12,Short Sale
+Arroyo Grande,850000,5,4,3588,236.9,Foreclosure
+Santa Maria-Orcutt,295900,3,2,1776,166.61,Short Sale
+Santa Maria-Orcutt,199000,4,3,1467,135.65,Short Sale
+Santa Maria-Orcutt,199900,3,3,1950,102.51,Short Sale
+Santa Maria-Orcutt,179900,3,2,1288,139.67,Foreclosure
+Atascadero,290000,3,3,1733,167.34,Short Sale
+Santa Maria-Orcutt,168000,3,2,1128,148.94,Short Sale
+Santa Maria-Orcutt,270000,3,3,1900,142.11,Short Sale
+Los Osos,1249000,6,7,5103,244.76,Foreclosure
+Santa Maria-Orcutt,240000,3,2,1255,191.24,Short Sale
+Coalinga,219500,5,2,1802,121.81,Short Sale
+Santa Maria-Orcutt,235000,4,3,2336,100.6,Short Sale
+San Luis Obispo,239800,2,2,1190,201.51,Foreclosure
+Santa Maria-Orcutt,269000,3,3,1800,149.44,Short Sale
+Paso Robles,319200,4,3,2006,159.12,Foreclosure
+Paso Robles,402500,3,2,2446,164.55,Foreclosure
+Paso Robles,425000,3,2,2114,201.04,Short Sale
+Atascadero,669000,3,3,2600,257.31,Short Sale
+Atascadero,369000,3,2,1514,243.73,Short Sale
+Paso Robles,239900,3,2,1080,222.13,Foreclosure
+Grover Beach,249500,2,2,1088,229.32,Short Sale
+Solvang,557000,4,2,1809,307.9,Short Sale
+Santa Maria-Orcutt,339900,6,3,2053,165.56,Foreclosure
+Nipomo,149900,2,2,969,154.7,Short Sale
+Arroyo Grande,849900,3,4,3375,251.82,Short Sale
+Lompoc,307000,3,2,1594,192.6,Foreclosure
+Santa Maria-Orcutt,259000,4,3,1900,136.32,Short Sale
+Santa Maria-Orcutt,165000,3,2,1050,157.14,Short Sale
+Santa Maria-Orcutt,289900,3,2,1414,205.02,Foreclosure
+Nipomo,879000,3,4,3698,237.7,Short Sale
+Santa Maria-Orcutt,220000,3,2,1200,183.33,Short Sale
+Atascadero,309000,3,3,1685,183.38,Short Sale
+Paso Robles,580000,3,3,2271,255.39,Short Sale
+Santa Maria-Orcutt,459900,2,2,1150,399.91,Short Sale
+Santa Maria-Orcutt,299000,5,3,2481,120.52,Short Sale
+Santa Maria-Orcutt,309900,4,3,1600,193.69,Short Sale
+Paso Robles,287000,3,2,1269,226.16,Short Sale
+Grover Beach,310000,3,2,1200,258.33,Short Sale
+Atascadero,229900,3,2,1198,191.9,Foreclosure
+Buellton,377000,3,2,1363,276.6,Foreclosure
+Lompoc,295000,4,2,1973,149.52,Short Sale
+Santa Maria-Orcutt,225000,3,2,1516,148.42,Short Sale
+Santa Maria-Orcutt,130000,3,2,1080,120.37,Short Sale
+Santa Maria-Orcutt,169990,2,1,920,184.77,Short Sale
+Santa Maria-Orcutt,145000,3,2,1027,141.19,Foreclosure
+Greenfield,184800,4,2,2018,91.58,Foreclosure
+Santa Maria-Orcutt,189900,3,2,1253,151.56,Foreclosure
+Santa Maria-Orcutt,249000,3,2,1062,234.46,Short Sale
+Santa Maria-Orcutt,185000,4,2,1934,95.66,Short Sale
+Atascadero,145000,2,2,1041,139.29,Short Sale
+Paso Robles,429000,5,3,2700,158.89,Foreclosure
+Arroyo Grande,419000,2,2,1587,264.02,Short Sale
+Santa Maria-Orcutt,245000,3,3,1859,131.79,Short Sale
+Santa Maria-Orcutt,289900,4,3,2400,120.79,Short Sale
+Santa Maria-Orcutt,175000,3,2,1110,157.66,Short Sale
+Santa Maria-Orcutt,139000,3,2,1075,129.3,Short Sale
+Arroyo Grande,514900,4,3,2035,253.02,Foreclosure
+Pismo Beach,549000,3,2,1858,295.48,Short Sale
+Atascadero,235000,3,3,1261,186.36,Short Sale
+Atascadero,399000,6,3,2628,151.83,Foreclosure
+Los Osos,259900,3,2,1120,232.05,Short Sale
+Lompoc,350900,3,2,1686,208.13,Foreclosure
+Nipomo,1399900,4,4,5190,269.73,Short Sale
+Santa Maria-Orcutt,399000,3,2,1840,216.85,Short Sale
+Solvang,399000,3,2,1204,331.4,Short Sale
+Atascadero,199000,2,1,973,204.52,Short Sale
+Santa Maria-Orcutt,350000,3,2,1622,215.78,Short Sale
+Nipomo,296800,4,2,2125,139.67,Foreclosure
+Santa Maria-Orcutt,165000,3,2,1204,137.04,Short Sale
+Santa Maria-Orcutt,210000,3,3,1750,120,Short Sale
+San Miguel,229000,3,2,1458,157.06,Short Sale
+San Miguel,199500,3,2,1184,168.5,Short Sale
+Santa Maria-Orcutt,110000,3,2,1000,110,Short Sale
+Paso Robles,264900,3,3,1197,221.3,Foreclosure
+Atascadero,449900,3,3,2135,210.73,Foreclosure
+Santa Maria-Orcutt,159900,3,2,1114,143.54,Short Sale
+Paso Robles,429000,4,2,1870,229.41,Short Sale
+Grover Beach,265000,1,1,566,468.2,Short Sale
+Nipomo,279900,2,2,1134,246.83,Short Sale
+Santa Maria-Orcutt,174900,3,2,1100,159,Foreclosure
+Lompoc,158900,4,2,1144,138.9,Foreclosure
+Santa Maria-Orcutt,150000,3,2,1349,111.19,Short Sale
+Buellton,269000,3,3,1281,209.99,Short Sale
+Atascadero,489900,3,3,1957,250.33,Foreclosure
+Santa Maria-Orcutt,256000,4,2,1174,218.06,Short Sale
+Atascadero,335000,4,3,2400,139.58,Short Sale
+Morro Bay,435000,3,2,1236,351.94,Short Sale
+Santa Maria-Orcutt,280000,3,3,1910,146.6,Short Sale
+Paso Robles,409000,4,2,2064,198.16,Foreclosure
+Paso Robles,409000,4,2,2064,198.16,Foreclosure
+Paso Robles,399000,4,3,1888,211.33,Foreclosure
+Paso Robles,389000,4,2,1862,208.92,Foreclosure
+Nipomo,222600,3,2,1106,201.27,Foreclosure
+Santa Maria-Orcutt,140000,3,2,1200,116.67,Short Sale
+Soledad,220000,5,3,2408,91.36,Foreclosure
+Nipomo,650000,3,3,2703,240.47,Short Sale
+Lompoc,405000,3,2,1728,234.38,Short Sale
+Paso Robles,409000,3,2,1960,208.67,Foreclosure
+Santa Maria-Orcutt,164900,3,2,1092,151.01,Foreclosure
+Santa Margarita,59900,1,1,628,95.38,Foreclosure
+Santa Maria-Orcutt,199900,3,2,1275,156.78,Short Sale
+Atascadero,95000,2,1,756,125.66,Foreclosure
+Oceano,170000,2,2,885,192.09,Short Sale
+San Miguel,720000,4,4,3531,203.91,Foreclosure
+Santa Maria-Orcutt,204000,3,2,1712,119.16,Short Sale
+Santa Maria-Orcutt,220000,3,2,1100,200,Short Sale
+Buellton,498900,4,3,1500,332.6,Foreclosure
+Santa Maria-Orcutt,229900,3,2,1671,137.58,Short Sale
+San Luis Obispo,531905,3,2,1668,318.89,Foreclosure
+Santa Maria-Orcutt,114900,2,1,775,148.26,Foreclosure
+Guadalupe,145000,3,2,1200,120.83,Short Sale
+Lompoc,191330,4,2,1237,154.67,Foreclosure
+Lompoc,199900,4,2,1338,149.4,Short Sale
+Santa Maria-Orcutt,266800,4,3,2100,127.05,Short Sale
+San Miguel,84900,2,2,1222,69.48,Foreclosure
+Santa Maria-Orcutt,250000,3,2,1807,138.35,Short Sale
+Santa Maria-Orcutt,220000,4,2,1352,162.72,Short Sale
+Lompoc,227900,3,2,1503,151.63,Foreclosure
+Buellton,384900,4,2,1571,245,Foreclosure
+Paso Robles,529000,4,3,2502,211.43,Short Sale
+Santa Maria-Orcutt,159900,3,2,1526,104.78,Foreclosure
+Atascadero,199000,3,2,1007,197.62,Short Sale
+Lompoc,125000,3,3,1306,95.71,Foreclosure
+Bakersfield,91500,3,2,1313,69.69,Short Sale
+Santa Maria-Orcutt,155000,3,2,1593,97.3,Short Sale
+Paso Robles,409000,3,3,2203,185.66,Short Sale
+Atascadero,949000,5,4,5200,182.5,Short Sale
+Atascadero,90000,2,1,756,119.05,Short Sale
+Santa Maria-Orcutt,300000,3,3,2328,128.87,Foreclosure
+Santa Maria-Orcutt,179900,3,2,1008,178.47,Short Sale
+Grover Beach,349000,3,2,1346,259.29,Short Sale
+Nipomo,220000,3,2,1112,197.84,Foreclosure
+Santa Maria-Orcutt,155000,3,2,1340,115.67,Short Sale
+Paso Robles,390000,4,2,2236,174.42,Short Sale
+Santa Maria-Orcutt,425000,5,4,3039,139.85,Short Sale
+Santa Maria-Orcutt,249900,3,2,1733,144.2,Short Sale
+Santa Maria-Orcutt,239000,4,3,1947,122.75,Short Sale
+Buellton,395000,4,3,1868,211.46,Short Sale
+Buellton,375000,3,3,1475,254.24,Short Sale
+Buellton,395000,4,3,1868,211.46,Short Sale
+Buellton,395000,4,3,1868,211.46,Short Sale
+Santa Maria-Orcutt,230000,4,3,1927,119.36,Short Sale
+Santa Maria-Orcutt,189000,3,2,1292,146.28,Foreclosure
+Paso Robles,304900,3,2,1657,184.01,Foreclosure
+Santa Maria-Orcutt,169900,3,2,1300,130.69,Foreclosure
+Santa Maria-Orcutt,286500,3,2,1700,168.53,Short Sale
+San Miguel,325000,4,2,2400,135.42,Short Sale
+Grover Beach,375000,3,2,1278,293.43,Short Sale
+Paso Robles,278000,3,2,1396,199.14,Foreclosure
+Paso Robles,149000,3,2,1368,108.92,Short Sale
+Santa Maria-Orcutt,209000,3,2,1520,137.5,Short Sale
+Santa Maria-Orcutt,95000,2,2,900,105.56,Short Sale
+Santa Maria-Orcutt,199900,3,2,1407,142.08,Short Sale
+Santa Maria-Orcutt,185000,3,2,1170,158.12,Short Sale
+Lompoc,449900,4,3,3035,148.24,Foreclosure
+Santa Maria-Orcutt,310000,5,4,2900,106.9,Short Sale
+Santa Maria-Orcutt,239900,4,2,1656,144.87,Short Sale
+Santa Maria-Orcutt,187900,2,2,980,191.73,Foreclosure
+Arroyo Grande,450000,3,2,1916,234.86,Short Sale
+San Luis Obispo,440000,3,3,1756,250.57,Short Sale
+Santa Maria-Orcutt,260000,3,2,1278,203.44,Short Sale
+New Cuyama,40900,3,1,1201,34.05,Short Sale
+Paso Robles,249000,3,2,1275,195.29,Short Sale
+Atascadero,349000,3,3,2000,174.5,Short Sale
+Santa Maria-Orcutt,175000,3,2,1200,145.83,Short Sale
+Atascadero,449970,3,2,2000,224.99,Foreclosure
+Grover Beach,419000,3,2,1902,220.29,Short Sale
+Arroyo Grande,400000,3,3,1568,255.1,Short Sale
+Santa Maria-Orcutt,185000,3,2,1257,147.18,Short Sale
+Santa Maria-Orcutt,139900,2,2,1100,127.18,Short Sale
+Santa Maria-Orcutt,174900,3,2,1461,119.71,Foreclosure
+Soledad,165360,4,2,1353,122.22,Foreclosure
+Santa Maria-Orcutt,169000,3,2,1200,140.83,Short Sale
+Santa Maria-Orcutt,240000,3,3,2039,117.7,Short Sale
+Santa Maria-Orcutt,364000,4,3,2150,169.3,Short Sale
+Arroyo Grande,250000,1,1,748,334.22,Short Sale
+Santa Maria-Orcutt,299900,4,3,1969,152.31,Foreclosure
+Santa Maria-Orcutt,281900,4,3,2357,119.6,Foreclosure
+Grover Beach,349900,3,1,1522,229.89,Short Sale
+Santa Maria-Orcutt,220000,3,2,1850,118.92,Short Sale
+Templeton,774800,3,4,3123,248.09,Foreclosure
+Santa Maria-Orcutt,135000,3,2,1200,112.5,Short Sale
+Lompoc,149900,3,1,1000,149.9,Regular
+Paso Robles,599000,3,2,2082,287.7,Foreclosure
+Santa Maria-Orcutt,179000,3,2,1200,149.17,Foreclosure
+Santa Maria-Orcutt,177000,3,2,1500,118,Foreclosure
+Santa Maria-Orcutt,177000,3,2,1500,118,Regular
+Nipomo,122500,4,2,1248,98.16,Regular
+Santa Maria-Orcutt,239500,3,2,1400,171.07,Short Sale
+Paso Robles,214900,3,2,1080,198.98,Foreclosure
+Santa Maria-Orcutt,275000,3,2,1460,188.36,Short Sale
+Arroyo Grande,425000,3,2,1437,295.76,Regular
+San Simeon,274900,2,2,1218,225.7,Foreclosure
+Nipomo,175000,2,2,1152,151.91,Regular
+Morro Bay,535000,2,2,1410,379.43,Regular
+Pismo Beach,540000,2,1,817,660.95,Regular
+Cambria,389000,2,2,703,553.34,Regular
+Paso Robles,250000,3,2,1425,175.44,Short Sale
+Paso Robles,425000,3,2,1807,235.2,Regular
+Out Of Area,1195000,5,4,3800,314.47,Regular
+Los Osos,1350000,3,3,2502,539.57,Regular
+Santa Maria-Orcutt,78500,1,1,800,98.13,Foreclosure
+Paso Robles,549000,3,2,2237,245.42,Regular
+Santa Maria-Orcutt,399900,4,2,1860,215,Regular
+Atascadero,699000,10,11,4905,142.51,Short Sale
+Santa Maria-Orcutt,129000,2,2,1200,107.5,Regular
+Cambria,480000,2,2,1698,282.69,Regular
+Nipomo,189000,3,1,1022,184.93,Foreclosure
+Pismo Beach,639900,3,2,2080,307.64,Regular
+Santa Maria-Orcutt,699900,5,4,3000,233.3,Regular
+Grover Beach,999000,3,3,3621,275.89,Regular
+Arroyo Grande,599000,3,2,1570,381.53,Regular
+Santa Maria-Orcutt,365000,4,2,1860,196.24,Regular
+Cambria,359900,3,2,1840,195.6,Foreclosure
+Arroyo Grande,995000,4,4,3740,266.04,Regular
+Lompoc,193450,4,2,1217,158.96,Foreclosure
+Santa Maria-Orcutt,179900,3,3,1520,118.36,Short Sale
+Grover Beach,329900,3,2,1240,266.05,Short Sale
+Templeton,509000,3,2,1936,262.91,Regular
+Atascadero,995000,3,3,2044,486.79,Regular
+Pismo Beach,545000,3,2,1946,280.06,Regular
+Pismo Beach,795000,3,3,2028,392.01,Regular
+Atascadero,830000,4,3,2700,307.41,Regular
+Arroyo Grande,54500,2,1,624,87.34,Regular
+Arroyo Grande,149000,3,2,1800,82.78,Regular
+Santa Maria-Orcutt,36000,2,2,1056,34.09,Regular
+Paso Robles,349000,3,2,1467,237.9,Regular
+Santa Maria-Orcutt,299900,4,3,2150,139.49,Short Sale
+Morro Bay,469000,4,2,2004,234.03,Regular
+Oceano,1195000,2,2,1044,1144.64,Regular
+Solvang,419900,3,2,1576,266.43,Foreclosure
+Los Osos,189000,2,2,1536,123.05,Regular
+Lompoc,163900,3,2,1082,151.48,Foreclosure
+Lompoc,163900,3,2,1237,132.5,Foreclosure
+Los Osos,648000,3,3,2193,295.49,Regular
+Santa Maria-Orcutt,130000,3,2,1022,127.2,Short Sale
+Atascadero,264900,3,2,1232,215.02,Foreclosure
+Santa Maria-Orcutt,189900,4,2,1435,132.33,Foreclosure
+Santa Maria-Orcutt,200000,4,2,1430,139.86,Short Sale
+Arroyo Grande,1249000,3,3,2480,503.63,Regular
+Cayucos,525000,3,3,1832,286.57,Regular
+Cambria,729000,3,3,1953,373.27,Regular
+Santa Maria-Orcutt,109900,3,2,1100,99.91,Foreclosure
+Santa Maria-Orcutt,850000,3,2,2481,342.6,Regular
+Santa Maria-Orcutt,249500,3,2,1704,146.42,Short Sale
+Oceano,179900,3,2,1161,154.95,Foreclosure
+Los Osos,149000,3,2,1440,103.47,Regular
+Creston,549000,3,2,1701,322.75,Regular
+Atascadero,435000,3,2,1536,283.2,Regular
+Atascadero,299000,3,2,1310,228.24,Regular
+Los Osos,625000,3,2,2187,285.78,Regular
+Santa Maria-Orcutt,399000,4,3,2100,190,Short Sale
+Out Of Area,186900,4,2,1511,123.69,Regular
+Cambria,1290000,3,3,2130,605.63,Regular
+Solvang,264900,2,3,1400,189.21,Foreclosure
+Lompoc,198900,3,2,1225,162.37,Foreclosure
+Paso Robles,318000,3,3,1868,170.24,Regular
+Cambria,2000000,4,4,3576,559.28,Regular
+Cambria,598000,2,3,2219,269.49,Regular
+Paso Robles,439900,3,3,2508,175.4,Foreclosure
+Pismo Beach,920000,3,3,2817,326.59,Regular
+Santa Maria-Orcutt,179900,3,2,1972,91.23,Short Sale
+Templeton,325000,2,1,952,341.39,Short Sale
+Grover Beach,369000,3,2,1080,341.67,Regular
+Santa Maria-Orcutt,312900,3,2,1454,215.2,Regular
+Atascadero,575000,3,3,1961,293.22,Regular
+Santa Maria-Orcutt,26500,2,2,1344,19.72,Regular
+San Luis Obispo,2369000,5,6,4174,567.56,Regular
+Atascadero,67500,2,2,120,562.5,Regular
+San Luis Obispo,1490000,3,3,3201,465.48,Regular
+Morro Bay,652000,3,2,1427,456.9,Regular
+Atascadero,449000,3,3,2100,213.81,Regular
+Morro Bay,982800,3,2,2306,426.19,Regular
+Santa Maria-Orcutt,235000,4,3,2100,111.9,Short Sale
+Paso Robles,579900,4,3,3166,183.16,Regular
+Santa Maria-Orcutt,250000,3,2,1280,195.31,Short Sale
+Coalinga,100000,3,1,870,114.94,Short Sale
+Coalinga,125000,2,1,960,130.21,Short Sale
+Cambria,650000,2,2,919,707.29,Regular
+Santa Maria-Orcutt,119900,2,2,1034,115.96,Foreclosure
+San Miguel,209900,3,2,1356,154.79,Foreclosure
+Paso Robles,524900,3,2,2380,220.55,Regular
+Atascadero,349000,5,3,3000,116.33,Short Sale
+Atascadero,349000,5,3,3000,116.33,Regular
+Cambria,825000,2,3,1840,448.37,Regular
+Grover Beach,255000,3,2,1189,214.47,Short Sale
+Nipomo,259000,4,2,1336,193.86,Short Sale
+Paso Robles,199000,2,1,832,239.18,Short Sale
+Santa Maria-Orcutt,410000,5,3,2100,195.24,Foreclosure
+Paso Robles,199000,3,1,940,211.7,Regular
+Paso Robles,270000,3,2,1344,200.89,Regular
+Cayucos,695000,2,2,1437,483.65,Regular
+Cambria,2995000,5,4,3684,812.98,Regular
+Paso Robles,131900,1,2,300,439.67,Regular
+Cambria,995000,4,3,2717,366.21,Regular
+Santa Maria-Orcutt,250000,4,3,2097,119.22,Regular
+Arroyo Grande,239800,5,2,1575,152.25,Foreclosure
+Atascadero,425000,6,3,2628,161.72,Regular
+Arroyo Grande,525000,3,2,1750,300,Regular
+Pismo Beach,459900,3,2,1346,341.68,Regular
+Atascadero,229900,3,2,1041,220.85,Foreclosure
+Out Of Area,199900,3,2,1526,131,Regular
+Arroyo Grande,599000,4,2,1728,346.64,Regular
+Santa Maria-Orcutt,197600,4,2,1378,143.4,Foreclosure
+Santa Maria-Orcutt,355000,2,1,1145,310.04,Regular
+Paso Robles,339900,3,2,1325,256.53,Regular
+Santa Maria-Orcutt,299000,3,3,1850,161.62,Regular
+Soledad,166800,4,2,1765,94.5,Foreclosure
+Grover Beach,379000,4,2,1631,232.37,Short Sale
+Santa Ynez,1395000,4,4,2693,518.01,Short Sale
+Santa Maria-Orcutt,150000,3,2,1316,113.98,Short Sale
+San Luis Obispo,475000,3,2,1382,343.7,Regular
+Santa Maria-Orcutt,265000,4,3,2300,115.22,Foreclosure
+Atascadero,265000,3,2,1617,163.88,Short Sale
+Los Osos,225000,2,2,1150,195.65,Regular
+Paso Robles,249900,2,2,1674,149.28,Foreclosure
+Arroyo Grande,509000,3,2,1543,329.88,Regular
+Paso Robles,214900,2,2,1351,159.07,Regular
+Arroyo Grande,5499000,4,5,5060,1086.76,Regular
+Santa Maria-Orcutt,349900,3,2,2000,174.95,Regular
+Solvang,125000,2,2,1536,81.38,Regular
+Cambria,549000,2,2,924,594.16,Short Sale
+Cambria,865000,3,3,1860,465.05,Regular
+Bradley,1600000,3,3,2640,606.06,Regular
+Nipomo,1065000,4,4,3395,313.7,Regular
+Templeton,625000,3,2,1850,337.84,Foreclosure
+Santa Maria-Orcutt,249999,3,2,1000,250,Regular
+Arroyo Grande,975000,4,3,2720,358.46,Regular
+Oceano,204900,2,1,992,206.55,Short Sale
+Atascadero,355000,3,2,1737,204.38,Regular
+Out Of Area,134900,3,3,1435,94.01,Regular
+Santa Maria-Orcutt,199900,5,3,1671,119.63,Short Sale
+Santa Maria-Orcutt,349900,4,3,2800,124.96,Short Sale
+Santa Maria-Orcutt,99000,2,2,900,110,Foreclosure
+Coalinga,409000,4,3,2507,163.14,Short Sale
+Pismo Beach,339000,2,2,1440,235.42,Regular
+San Miguel,595000,3,3,2238,265.86,Regular
+Pismo Beach,849500,3,3,2725,311.74,Regular
+Paso Robles,399000,2,3,1772,225.17,Regular
+Paso Robles,399000,4,2,1947,204.93,Regular
+Solvang,525000,3,2,1720,305.23,Regular
+Paso Robles,319900,3,3,1605,199.31,Regular
+Paso Robles,495000,3,2,1877,263.72,Regular
+San Luis Obispo,372000,3,2,1104,336.96,Foreclosure
+Arroyo Grande,589000,3,2,1975,298.23,Regular
+Cambria,1100000,3,3,2392,459.87,Regular
