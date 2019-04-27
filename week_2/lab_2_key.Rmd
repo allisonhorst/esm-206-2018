@@ -1,0 +1,246 @@
+---
+title: "ESM 206 Lab 2"
+author: "Allison Horst"
+date: "October 3, 2018"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Lab 2 Objectives 
+
+- RMarkdown introduction (creating, some formatting, knitting)
+- Data wrangling continued (rename, group_by, summarize)
+
+### 1. What is markdown? 
+
+Introduce markdown. Point out differences between markdown and scripts. Why is this useful? Document preparation + embedded code - you can do everything in the same place (write, analyze, produce final figures...). That means better reproducibility.
+
+### 2. Some basics in markdown formatting...
+
+# One pound sign: Large heading
+## More means smaller headings
+
+Just writing text is regular text
+
+We can *italicize* using a single asterisk
+Or **bold** using double asterisks
+
+1. Or
+2. make
+3. numbered
+4. lists
+
+And when we're ready to prepare a report, we press KNIT to convert to a supported document type (today we'll use knitting to HTML)
+
+But we can do all of that in a Word document. Why is markdown special? Because it allows us to do **all of our writing and data analysis and data visualization in the SAME PLACE!** Can you imagine not having 15 files with your different analyses, and a different Word document with your text, and different files for all of your figures? That is not an easy way to reproduce computational data science...
+
+### 3. Embedding code into Rmarkdown (+ data wrangling review)
+
+To add code in Rmarkdown, Insert an R code chunk (Insert > R) (or shortcut command + shift + i). You will see a new shaded region appear. That's where you'll include any active code AND commenting (you can treat these shaded areas like you would a script). 
+
+First, let's load the tidyverse and our data (information on pesticide application in Santa Barbara county for wine grapes in 2016). Data is from the California Department of Pesticide Regulation's Pesticide Information Portal (CALPIP). 
+
+```{r}
+
+####### This area works like a script:
+
+library(tidyverse) # Loads the tidyverse
+library(RColorBrewer) # (just for my graph example)
+
+sb_pest <- read_csv("sb_pest.csv") # Read in the sb_pest.csv file
+
+### DO NOT USE read.csv. USE read_csv(). 
+
+####### Basic data exploration:
+
+View(sb_pest)
+names(sb_pest)
+summary(sb_pest) # At this point, make them look at the class of POUNDS_CHEMICAL_APPLIED. If is "character", that's fine...if it's "factor", then they'll want it to be character. 
+
+```
+
+Looks like it loaded successfully. We're only really interested in four variables: county (COUNTY_NAME), crop (SITE_NAME), chemical name (CHEMICAL_NAME), pounds of chemical applied (POUNDS_CHEMICAL_APPLIED). 
+
+First, let's do the following:
+(1) Select only those columns
+(2) Rename the columns to something more useful
+(3) Remove rows with 'NA' in the pounds applied column
+(4) Re-order columns to county, chemical, pounds, crop
+(5) Coerce 'pounds' into class 'numeric'
+
+```{r}
+
+# Basic data wrangling (review)
+
+sb_simple <- sb_pest %>% 
+  select(COUNTY_NAME, SITE_NAME, CHEMICAL_NAME, POUNDS_CHEMICAL_APPLIED) %>% 
+  rename(county = COUNTY_NAME, crop = SITE_NAME, chemical = CHEMICAL_NAME, pounds = POUNDS_CHEMICAL_APPLIED) %>% 
+  filter(pounds != "N/A") %>% # Here, also show !is.na(pounds) option for NA
+  select(county, chemical, pounds, crop) %>% 
+  mutate(pounds = as.numeric(pounds)) # In this case, it DOES overwrite
+
+View(sb_simple)
+class(sb_simple$pounds) # numeric
+
+```
+
+Now I'm back to working just in the document again. Remember to knit frequently to see what happens.
+
+What if I don't want my code or messages/outputs to show up in my knitted document? Then in the chunk header I can use things like 'echo = FALSE', 'message = FALSE', results = "hide". Let's see what happens:
+
+```{r}
+
+# Show what happens when you add the lines above and knit...
+names(sb_simple)
+
+```
+
+Now that entire code + results is hidden in the knitted document. Here, direct them to the RCheatsheets (Help > Cheatsheets). 
+
+### 4. Summary statistics and group_by()
+
+Let's say that for the sb_simple data, I want to find the TOTAL (pounds) of each pesticide type applied to wine grapes in the county during 2016. I could create subsets for each of the four pesticides, then use whatever function I wanted on the 'pounds' column. Instead, we can ask R to add "behind the scenes" grouping to the data, then calculate summary statistics using 'summarize' and whichever summary statistics you want to find. 
+
+```{r}
+
+grapes_summary <- sb_simple %>% 
+  group_by(chemical) %>% 
+  summarize(
+    total_applied = sum(pounds),
+    max_applied = max(pounds)
+  ) %>% 
+  arrange(-total_applied) %>% 
+  head(10)
+
+grapes_summary
+
+```
+
+You can also group by multiple variables (e.g. if we had multiple counties, we could group by county THEN by chemical, and we'd get a summary for pesticides by type and county)
+
+What if I want to export that data frame as its own file (csv)? Use write_csv to send it to your working directory. 
+
+```{r}
+
+write_csv(grapes_summary, "grapes_summary.csv")
+
+```
+
+Notice that it shows up in your 'Files' tab (working directory), and if you go to your project folder on your computer, it also exists there. Then you can copy/paste/email whatever. 
+
+Let's make a column graph of the Top 10...
+
+```{r}
+
+
+top_10_col <- ggplot(grapes_summary, 
+                     aes(x = chemical, 
+                         y = total_applied)) +
+  geom_col() +
+  labs(x = "Chemical Name", y = "Total Applied (pounds)") +
+  coord_flip() 
+
+top_10_col 
+
+# Notice if we do this, it just puts them in alphabetical order. If we want it to stay in the order from high to low, we need to reassign the chemical as factors and explicitly set the levels (see below)
+
+grape_summary_factor <- grapes_summary %>% 
+  mutate(chemical = factor(chemical, levels = chemical))
+
+# NOW we can plot and that order will be retained...
+```
+
+```{r}
+
+top_10_ordered <- ggplot(grape_summary_factor, aes(x = chemical, y = total_applied)) +
+  geom_col(aes(fill = chemical), show.legend = FALSE) +
+  coord_flip() +
+  scale_fill_brewer(palette = "Spectral") + # Note: need package RColorBrewer
+  theme_classic() +
+  scale_x_discrete(expand = c(0,0)) +
+  scale_y_continuous(expand = c(0,0)) +
+  labs(x = "", y = "Total applied to SB County grapes (pounds)")
+
+top_10_ordered
+
+```
+
+
+### 5. A histogram (of glyphosate applications)
+
+First, I'll make a subset of sb_simple that only contains the application data for glyphosate (have THEM try this...the chemical is stored as GLYPHOSATE, ISOPROPYLAMINE SALT 
+
+```{r}
+
+sb_glyphosate <- sb_simple %>% 
+  filter(chemical == "GLYPHOSATE, ISOPROPYLAMINE SALT")
+
+```
+
+Then make a histogram...
+
+```{r, fig.width = 4, fig.height = 4}
+
+glyphosate_hist <- ggplot(sb_glyphosate, aes(x = pounds)) +
+  geom_histogram(bins = 12, boundary = 0, color = "dodgerblue", fill = "dodgerblue4") +
+  labs(x = "Glyphosate Applied (pounds)", 
+       y = "Frequency (n = 197)", 
+       title = "SB Wine Grape Glyphosate Use (2016)") +
+  theme_classic() +
+  scale_y_continuous(expand = c(0,0), limits = c(0,150)) +
+  scale_x_continuous(expand = c(0,0))
+  
+
+glyphosate_hist
+
+
+```
+
+Notice that when we knit, it shows up in that document (so we can embed final figures in a document, which will be automatically updated if we change our data/analyses/code...). 
+
+Want to change the size of the final figure in the knitted document? You can add fig.width or fig.height to the chunk header to specify (inches is default). 
+
+### 6. The datasets package and a boxplot
+
+Want to do some practice with data analysis but don't want to deal with loading data every time? There are some datasets that exist in R for just that purpose. 
+
+You can find them using library(help = "datasets")...(run that in the console window). There are some pretty fun ones to practice with. 
+
+Let's check out one of them: InsectSprays
+Use ?InsectSprays in the console to bring up information about the dataset
+
+We want to make a boxplot (a different box + whisker for each of the different insect sprays)
+
+```{r}
+
+insect_boxplot <- ggplot(InsectSprays, aes(x = spray, y = count)) +
+  geom_boxplot(fill = "gray90") +
+  theme_classic() +
+  labs(x = "Spray Type", y = "Insect Counts") +
+  geom_jitter(width = 0.1, alpha = 0.4, aes(color = spray))
+
+insect_boxplot
+
+```
+
+To end: close entire project, reopen, run code: show how easy it is to recreate EVERYTHING just by running the entire code. 
+
+IF extra time: explore the 'faithful' dataset (use ?faithful). In ggplot, create a scatterplot of waiting time (x) versus eruption duration (y), and customize. 
+
+```{r}
+
+faithful_plot <- ggplot(faithful, aes(x = waiting, y = eruptions)) +
+  geom_point() +
+  theme_classic()
+
+faithful_plot
+  
+# Always ask yourself: What are the major takeaways?
+
+```
+
