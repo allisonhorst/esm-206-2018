@@ -1,0 +1,298 @@
+---
+title: "Lab 10 Key"
+author: "Allison Horst"
+date: "November 29, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Lab 10:
+
+- heatmap using heatmap or ggplot2
+- gganimate
+
+```{r packages}
+
+library(tidyverse)
+library(janitor)
+library(lubridate)
+library(gganimate)
+library(ggimage)
+library(corrplot)
+
+```
+
+
+# PART 1. Correlation matrix (world environmental factors)
+
+```{r}
+# Accessed from: https://www.kaggle.com/zanderventer/environmental-variables-for-world-countries#World_countries_env_vars.csv
+
+# World environmental variables (a bunch)
+# Just look at correlation matrix in a couple of cool ways...
+
+env_var <- read_csv("world_env_vars.csv") %>% 
+  na.omit
+
+cor_df <- cor(env_var[2:28])
+corrplot(cor_df, 
+         type = "upper", 
+         method = "ellipse", 
+         order = "hclust", 
+         tl.col = "black", 
+         tl.srt = 45, 
+         tl.cex = 0.5) # also try method = number, method = color
+
+```
+
+
+# PART 2. Solar irradiation at the 3 locations in 2010 (pull in all together, do some lubridate stuff, etc.)
+
+```{r}
+#####################
+# a. Read in multiple files with matching string (this is new, I'll explain slowly in lab): 
+#####################
+
+si_full <- list.files(pattern = "solar_irradiation_*") %>% 
+  map_df(~read_csv(.)) %>% # Apply read_csv function to all, then put them into a df
+  clean_names() # janitor() function to get all column names in snake_case
+
+#####################
+# b. Data wrangling!
+#####################
+
+solar_tidy <- si_full %>% 
+  clean_names() %>% 
+  rename(sol_rad = etr_wh_m_2, 
+         date = yyyy_mm_dd, 
+         time = hh_mm_lst) %>% 
+  filter(time != "NA") %>% 
+  mutate(site = fct_relevel(site, "Hawaii","Santa Barbara","Alaska"))
+
+######################
+# c. Use lubridate() to convert to times/dates!
+######################
+
+solar_tidy$date <- mdy(solar_tidy$date) # Now it's a date! 
+solar_tidy$time <- hms(solar_tidy$time) # And this is a time! 
+
+#######################
+# d. Make an awesome graph
+#######################
+
+solar_gg <- ggplot(solar_tidy, aes(x = date, y = time)) +
+  geom_tile(aes(fill = sol_rad)) +
+  scale_fill_gradientn(colors = c("royalblue2","mediumorchid1", "orange", "yellow")) +
+  scale_x_date(labels = date_format("%b"), expand = c(0,0), breaks = '1 month') +
+  scale_y_time(breaks = c(21600, 43200,64800), labels = c("6am","12pm","6pm"), expand = c(0,0)) +
+  labs(x = "", y = "") +
+  theme_classic() +
+  theme(axis.line = element_blank(), axis.ticks = element_blank(),axis.text.x = element_text(size = 9, hjust = 0, angle = 45, vjust = 0.5), axis.text.y = element_text(size = 11))  +
+  facet_grid(site ~ .)
+
+solar_gg
+
+
+```
+
+
+#PART 3. gganimate example: total aquaculture production (metric tons) for United States and Central American countries
+
+
+```{r}
+
+aq_df <- read_csv("aq_wb.csv")
+
+aq_tidy <- aq_df %>% 
+  filter(country == "Brazil" | 
+           country == "Chile" | 
+           country == "Ecuador" |
+           country == "United States") %>% 
+  gather(year, aq_prod, `1960`:`2014`) %>% 
+  filter(year >= 1990) %>% 
+  mutate(aq_mil = aq_prod/1000000) %>% 
+  select(country, year, aq_mil)
+
+# TRYING ANOTHER THING: custom points (fish)
+
+fish = "fish.png"
+
+aq_plot2 <- ggplot(aq_tidy, aes(x = as.numeric(year), y = aq_mil, group = country)) + 
+  geom_line(aes(color = country), size = 1) +
+  geom_point(aes(color = country)) +
+  geom_image(aes(image = fish)) + # Optional
+  geom_text(aes(label = country, color = country), position = position_nudge(y = 0.04, x = 1), size = 5) +
+  scale_color_manual(values = c("darkcyan","goldenrod3","darkmagenta","chocolate1")) + # optional
+  labs(x = "Year", y = expression(Aquaculture~Production~(10^6~metric~tons))) + # optional
+  coord_cartesian(clip = 'off') + 
+  transition_reveal(country, as.numeric(year)) + # How the transitions will occur (lots of options here)
+  theme_bw() +
+  theme(legend.position = "NA", panel.grid.minor = element_blank(), panel.grid.major = element_blank(),
+        axis.text.x = element_text(size=12), axis.text.y = element_text(size = 14),
+        axis.title.x = element_text(size=14, face = "bold"),
+        axis.title.y = element_text(size=14,face="bold")) +
+  scale_x_continuous(expand = c(0,0), limits = c(1990, 2017)) +
+  scale_y_continuous(expand = c(0,0))
+
+aq_plot2
+
+animate(aq_plot2, nframes = 48, renderer = gifski_renderer("aq_animate.gif")) # optional (if they want to save and post/send)
+
+```
+
+
+
+
+
+###########################
+###########################
+###########################
+
+
+# EXTRA EXAMPLES
+
+1. Read in sb_buoy_df (hourly buoy data for SB) and wb_df (World Bank aquaculture data), and make the column names snake_case
+
+```{r read_data, include = FALSE}
+
+# Try reading in all files starting with solar_sb_...?
+
+sb_df_full <- list.files(pattern = "solar_sb_*") %>% 
+  map_df(~read_csv(.)) %>% 
+  clean_names() 
+
+sb_clean <- sb_df_full %>% 
+  rename(sol_rad = etr_wh_m_2, date = yyyy_mm_dd, times = hh_mm_lst) %>% 
+  filter(times != "NA") %>% 
+  mutate(date = mdy(date), times = hms(times)) %>% 
+  mutate(year = format(date, "%Y")) %>% 
+  mutate(month_day = format(date, "%m/%d")) %>% 
+  mutate(day_no = yday(date))  %>% 
+  select(year, month_day, day_no, date, times, sol_rad) 
+
+# sb_clean$year <- as.Date(sb_clean$year, "%y")
+# sb_clean$month_day <- as.Date(sb_clean$month_day, "%m/%d") 
+
+ca_solar_rad <- ggplot(sb_clean, aes(x = day_no, y = times)) +
+  geom_tile(aes(fill = sol_rad)) +
+  scale_fill_gradientn(colors = c("royalblue2","mediumorchid1", "orange", "yellow")) +
+  scale_y_time(breaks = c(10800, 21600, 32400, 43200, 54000, 64800, 75600), labels = c("3am","6am","9am","12pm","3pm","6pm","9pm"), expand = c(0,0)) +
+  labs(x = "", y = "",title = 'Year: {frame_time}') +
+  theme_classic() +
+  theme(axis.line = element_blank(), axis.ticks = element_blank(),axis.text.x = element_text(size = 9, hjust = 0, angle = 45, vjust = 0.4),text = element_text(family = "Courier"), axis.text.y = element_text(size = 11)) +
+  transition_time(as.numeric(year))
+
+# +
+#   scale_x_date(labels = date_format("%Y"), expand = c(0,0), breaks = '1 year')
+#   transition_time(as.numeric(year))
+  
+
+#
+ca_solar_rad
+
+  
+```
+
+Use janitor package to clean up the sb_buoy_df column names (to snake_case):
+
+```{r janitor, echo = FALSE, fig.height = 3, fig.width = 4}
+
+# Update this so reading all together
+
+sb_solar <- read_csv("solar_sb_2010.csv") %>% 
+  mutate(site = "Santa Barbara") 
+
+ak_solar <- read_csv("solar_ak_2010.csv") %>% 
+  mutate(site = "Alaska")
+
+hi_solar <- read_csv("solar_hilo_2010.csv") %>% 
+  mutate(site = "Hawaii")
+
+ab_ak_hi <- rbind(sb_solar, ak_solar, hi_solar)
+
+three_solar <- ab_ak_hi %>% 
+  clean_names() %>% 
+  rename(sol_rad = etr_wh_m_2, date = yyyy_mm_dd) %>% 
+  filter(hh_mm_lst != "NA") %>% 
+  mutate(site = fct_relevel(site, "Hawaii","Santa Barbara","Alaska"))
+
+# Have them check class of date column here (character)
+
+three_solar$date <- mdy(three_solar$date) # Now it's a date! 
+three_solar$hh_mm_lst <- hms(three_solar$hh_mm_lst)
+
+solar_heat <- ggplot(three_solar, aes(x = date, y = hh_mm_lst)) +
+  geom_tile(aes(fill = sol_rad)) +
+  scale_fill_gradientn(colors = c("royalblue2","mediumorchid1", "orange", "yellow")) +
+  scale_x_date(labels = date_format("%b"), expand = c(0,0), breaks = '1 month') +
+  scale_y_time(breaks = c(21600, 43200,64800), labels = c("6am","12pm","6pm"), expand = c(0,0)) +
+  labs(x = "", y = "") +
+  theme_classic() +
+  theme(axis.line = element_blank(), axis.ticks = element_blank(),axis.text.x = element_text(size = 9, hjust = 0, angle = 45, vjust = 0.5), axis.text.y = element_text(size = 11))  +
+  facet_grid(site ~ .)
+
+solar_heat
+
+
+```
+
+
+## A gganimate example! 
+
+Data for CO2 emissions (by country) from WorldBank
+```{r}
+
+co2 <- read_csv("co2_wb.csv")
+
+co2_tidy <- co2 %>% 
+  filter(country == "China" | 
+           country == "United States" | 
+           country == "European Union" | 
+           country == "India" | 
+           country == "Russian Federation") %>% 
+  gather(year, emissions_kt, `1960`:`2014`) %>% 
+  select(country, year, emissions_kt)
+
+co2_plot <- ggplot(co2_tidy, aes(x = as.numeric(year), y = emissions_kt, group = country)) + 
+  geom_line(aes(color = country), size = 1) +
+  geom_point(aes(color = country)) +
+  geom_text(aes(label = country, color = country), position = position_nudge(y = 200000), size = 4) +
+  scale_color_manual(breaks = c("China", "United States","European Union","India", "Russian Federation"), values = c("goldenrod1","darkorchid1","dodgerblue","coral1","cyan3")) +
+  labs(x = "Year", y = expression(CO[2]~Emissions~(kT))) +
+  coord_cartesian(clip = 'off') + 
+  transition_reveal(country, as.numeric(year)) +
+  theme_minimal() +
+  theme(legend.position = "NA")
+
+co2_plot
+
+
+
+```
+
+The extra aquaculture one (no fish)
+```{r}
+# PLOT IT
+aq_plot <- ggplot(aq_tidy, aes(x = as.numeric(year), y = aq_mil, group = country)) + 
+  geom_line(aes(color = country), size = 1) +
+  geom_point(aes(color = country)) +
+  geom_text(aes(label = country, color = country), position = position_nudge(y = 0.03, x = 1), size = 5) +
+  scale_color_manual(values = c("darkcyan","goldenrod3","darkmagenta","chocolate1")) +
+  labs(x = "Year", y = expression(Aquaculture~Production~(10^6~metric~tons))) +
+  coord_cartesian(clip = 'off') + 
+  transition_reveal(country, as.numeric(year)) +
+  theme_bw() +
+  theme(legend.position = "NA", panel.grid.minor = element_blank(), panel.grid.major = element_blank(),
+        axis.text.x = element_text(size=12), axis.text.y = element_text(size = 14),
+        axis.title.x = element_text(size=14, face = "bold"),
+        axis.title.y = element_text(size=14,face="bold")) +
+  scale_x_continuous(expand = c(0,0), limits = c(1990, 2017)) +
+  scale_y_continuous(expand = c(0,0))
+
+aq_plot
+``` 
+
+# expression(Aquaculture~Production~(10^6~metric tons))
