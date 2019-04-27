@@ -1,0 +1,110 @@
+---
+title: "ESM 206 Lab 1 Summary"
+subtitle: "Bren School (UCSB)"
+author: "Allison Horst"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Lab 1 Packages Required
+
+tidyverse
+
+#Lab 1 Functions
+*Here, 'df' is the name of the data frame you're working with.*
+
+##Functions for initial data exploration
+- names(df): variable (column) names
+- dim(df): data frame dimensions
+- class(df): variable classes
+- head(df): first 6 lines of data frame
+- tail(df): last 6 lines of data frame
+- View(df): view data frame in new tab
+- summary(df): value and class summary for each column
+
+##Functions for basic data wrangling
+- select(): select only specified columns
+- filter(): filter df to retain rows satisfying specified value/character conditions
+- arrange(): sort data numerically or alphabetically
+- mutate(): add new column(s) based on those existing in data frame
+
+##Other useful functions/operators
+- df$A: use the dollar sign to refer to a single column
+- ?: use a single question mark followed by the function name for R documentation
+- ??: use double question mark followed by function name to list all possible R functions
+- as.numeric(): convert a variable/vector to 'numeric' class
+- as.factor(): convert a variable/vector to 'factor' class
+- quartz(): open a new graphics window on a mac
+- windows(): open a new graphics window on a PC
+
+```{r tidyverse, include = FALSE}
+library(tidyverse)
+```
+
+
+```{r Data, include = FALSE}
+National_Parks_Visitation_Data <- read_csv("~/Documents/Bren Courses/ESM 206/Fall 2017/Labs/Lab 1/National Parks Visitation Data.csv") # Make sure they get used to adding comments after each line of code!
+```
+
+
+```{r Data Wrangling, echo = FALSE}
+
+NPDF <- National_Parks_Visitation_Data # Make a copy that's called NPDF, which is easier to call as a variable
+
+df1 <- select(NPDF, State:YearRaw) # Only select columns from State through YearRaw in NPDF data frame, store as a new data frame 'df1'
+
+df2 <- filter(df1, State == "CA" & Type == "National Park" & YearRaw >= 1950) # Filters so that only rows are retained if the State column is 'CA' and the Type column is 'National Park' AND only incudes if Year is 1950 or greater, stores as new subset data frame 'df2'
+
+df3 <- arrange(df2, Code, YearRaw) # Arranges data first by alphabetical order in 'Code' column, THEN by ascending value in YearRaw column
+
+df4 <- mutate(df3, kVis = Visitors/1000) # Adds a NEW column called 'kVis' (for thousands of visitors) to 'df3' that is the Visitors column divided by 1000 (convert to units of 1000s of visitors)
+
+df5 <- filter(df4, !YearRaw %in% "Total") # Remove any 'Total' values in the YearRaw column (this is a little advanced...tell them not to worry about it much). Basically %in% looks to match "Total" in YearRaw...putting the '!' before YearRaw makes it the opposite (look for anything NOT matching Total in the YearRaw column)
+
+# Look at the class of each of the columns
+# summary(df5) # Uh oh. YearRaw is stored as a character (because it HAD those 'Total' characters in it). We want it to be stored as a number so that we can use it easily as our x-axis value. 
+
+df5$YearRaw <- as.numeric(df5$YearRaw) # Changes the YearRaw column of df5 to 'numeric' instead of 'character'
+# class(df5$YearRaw) # Check! Now it returns 'numeric.' Hooray!
+
+```
+
+\newpage
+#Example Graphs
+
+```{r CA National Parks Scatterplot, fig.width = 5, fig.height = 4, fig.align = "center"} 
+
+ggplot(df5, aes(x = YearRaw, y = kVis)) + 
+  geom_point(aes(colour = Code)) + 
+  geom_line(aes(colour = Code)) + 
+  ggtitle("California National Parks Visitation\n1950 - 2016") + 
+  xlab("\nYear") + 
+  ylab("Thousands of Visitors\n") + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor =
+     element_blank(),panel.background = element_blank(), axis.line =  
+     element_line(colour = "black")) +
+  scale_x_continuous(breaks = c(1950,1960,1970,1980,1990,2000,2010,2020))
+
+```
+
+\newpage
+```{r CA National Parks Boxplot, fig.width = 5, fig.height = 4, fig.align = "center"}
+
+ggplot(df5, aes(x = Code, y = kVis)) +
+  geom_boxplot(aes(fill = Code)) +
+  theme_bw() +
+  ggtitle("CA National Park Visitation (1950 - 2016)") +
+  xlab("National Park") +
+  ylab("Thousands of Visitors") +
+  scale_x_discrete(breaks = c("CHIS", "DEVA", "JOTR", "KICA", "LAVO", 
+                              "PINN", "REDW", "SEQU", "YOSE"),
+    labels = c("Channel Islands", "Death Valley", "Joshua Tree", "Kings Canyon", 
+               "Lassen Volcanic",  "Pinnacles", "Redwoods", "Sequoia", "Yosemite")) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45))
+
+```
+
