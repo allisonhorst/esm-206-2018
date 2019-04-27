@@ -1,0 +1,31 @@
+---
+title: "Allison’s HP Aggression File"
+author: "Allison Horst"
+date: "October 29, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##1. Load packages and data
+```{r, include = FALSE}
+
+library(tidyverse)
+hp_data <- read_csv("harry_potter_aggression_full.csv")
+
+hp_simple <- hp_data %>% 
+  filter(Name == "Harry" | Name == "Draco Malfoy") %>% 
+  select(Name, book, agg.per.mention) %>% 
+  ggplot(aes(x = book, y = agg.per.mention)) +
+  geom_col(aes(fill = Name), position = "dodge") +
+  coord_flip() +
+  labs(x = "", y = "Aggressions per mention") +
+  theme_bw() +
+  scale_y_continuous(expand = c(0,0))
+
+hp_simple
+
+```
+

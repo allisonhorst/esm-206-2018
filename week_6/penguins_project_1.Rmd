@@ -1,0 +1,148 @@
+---
+title: "penguins_anova"
+author: "Allison Horst"
+date: "November 1, 2018"
+output: html_document
+---
+
+0. Start a new git-enabled Project by following along: 
+
+- Fork my lab-6 repo in github
+- Clone (copy URL)
+- Open RStudio, and start a new project with Version Control using git
+- Link to github by pasting URL when prompted
+- Follow along by updating the markdown template
+- Practice staging, committing and pushing back to github throughout lab
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Our question: "Do mean flipper lengths differ significantly for Adelie, Gentoo and Chinstrap penguins near Palmer Archipeligo?"
+
+1. Load packages and read-in penguins.csv data
+```{r}
+
+library(tidyverse)
+library(car)
+library(onewaytests)
+
+penguins <- read_csv("penguins.csv")
+
+```
+
+2. Do some exploring (note that data is already in tidy format)
+
+New functions: with + table for easy counts over multiple factors (this is a nice one...)
+Update species information (simplify) using case_when
+
+```{r}
+
+counts <- with(penguins, table(species, sex))
+View(counts)
+
+# Update species information (common name) using case_when()
+penguins2 <- penguins %>% 
+  mutate(common_name = 
+         case_when(
+    species == "Chinstrap penguin (Pygoscelis antarctica)" ~ "Chinstrap",
+    species == "Gentoo penguin (Pygoscelis papua)" ~ "Gentoo",
+    species == "Adelie Penguin (Pygoscelis adeliae)" ~ "Adelie"
+  )
+  ) %>% 
+  select(-species) %>% 
+  filter(sex == "FEMALE")
+
+
+```
+
+Then...
+
+- exploratory graphs
+- summary statistics
+- Levene's test (equal variances)
+- one-way ANOVA (type III)
+- use agricolae package to get groups
+
+Exploratory graphs
+```{r, include = FALSE}
+
+hists <- ggplot(penguins2, aes(x = flipper_length)) +
+  geom_histogram(bins = 10) +
+  facet_wrap(~ common_name, scale = "free")
+
+hists
+
+qqs <-  ggplot(penguins2, aes(sample = flipper_length)) +
+  geom_qq(bins = 10) +
+  facet_wrap(~ common_name, scale = "free")
+
+qqs
+
+# All groups approx. normally distributed. How do they look compared to each other?
+
+box <-  ggplot(penguins2, aes(x = common_name, y = flipper_length)) +
+  geom_boxplot(width = 0.2) +
+  geom_jitter(width = 0.1, alpha = 0.5, aes(color = common_name))
+
+box
+
+```
+
+Levene's test for equal variances (and keep in mind the general rule: if the greatest variances is < 4x bigger than the smallest variance, then usually those are "close enough" to assume equal variance)
+
+```{r}
+## DO LEVENE'S TEST HERE
+
+variances <- penguins2 %>% 
+  group_by(common_name) %>% 
+  summarize(
+    mean = mean(flipper_length),
+    sd = sd(flipper_length),
+    variance = var(flipper_length)
+  )
+
+variances # Definitely close enough (also see that this lines up with Levene's test)
+
+penguin_levene <- leveneTest(flipper_length ~ common_name, data = penguins2)
+
+penguin_levene # Variances are not significantly different
+
+
+```
+
+One-Way ANOVA (Type III)
+
+```{r}
+
+penguin_aov <- aov(flipper_length ~ common_name, data = penguins2)
+penguin_sum <- summary(penguin_aov)
+
+penguin_ph <- TukeyHSD(penguin_aov)
+
+## Testing other options (for a variation that allows to call values using in-line references...) There's one aov.test() in the new 'onewaytests' package, BUT that doesn't have Tukey's for a post-hoc pairwise comparison...
+
+penguin_factor <- data.frame(
+  penguins2 %>% 
+  mutate(name_factor = as.factor(common_name),
+         flip_numeric = flipper_length
+         )
+  )
+
+aov2 <- aov.test(flip_numeric ~ name_factor, data = penguin_factor)
+
+# Yes, there are at least two means that differ significantly. 
+# Our next question: which ones? 
+# Bonferroni correction:
+
+post_hoc <- paircomp(aov2, adjust.method = "bonferroni")
+
+# All means are significantly different from each other! 
+
+
+```
+
+How do we report this outcome?
+
+Mean flipper lengths for Adelie (mean ± sd, n = ), Gentoo (mean ± sd, n = ), and Chinstrap (mean ± sd, n =) penguins all differed significantly across all groups by one-way ANOVA (F(`r aov2$parameter`) = `r aov2$statistic`, *p* < 0.001, $\alpha$ = 0.05) with post-hoc pairwise comparison by Bonferroni correction (p < 0.001 for all pairwise comparisons).
+
