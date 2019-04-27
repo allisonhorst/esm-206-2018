@@ -1,0 +1,36 @@
+Score.pre,Score.post,Age,Gender,Class,Specialization,SesameStreet,MuppetShow,Personality,Frog,Green,Bren,PriorProf
+2,3,24,F,2nd yr MESM, Pollution Prevention & Remediation ,Y,Y,Fun-loving,Y,N,Environmental school,N
+5,5,25,F,1st yr MESM, Environmental Economics & Policy,Y,Y,Fun-loving,Y,N,Environmental school,Y
+1,1,25,M,1st yr MESM, Corporate Environmental Management,Y,Y,Fun-loving,Y,Y,Environmental school,Y
+3,4,29,F,1st yr MESM, Conservation Planning,Y,Y,Fun-loving,Y,N,Environmental school,Y
+3,3,23,M,2nd yr MESM, Corporate Environmental Management,N,Y,Fun-loving,Y,N,Environmental school,N
+3,4,26,F,2nd yr MESM, Corporate Environmental Management,Y,Y,Serious,Y,Y,Business school,Y
+1,2,25,M,1st yr MESM, Corporate Environmental Management,Y,Y,Fun-loving,Y,Y,Environmental school,Y
+5,2,24,F,1st yr MESM, Conservation Planning,Y,Y,Fun-loving,Y,N,Environmental school,N
+5,4,27,F,1st yr MESM, Environmental Economics & Policy,Y,Y,Fun-loving,Y,N,Environmental school,Y
+5,3,26,F,2nd yr MESM, Corporate Environmental Management,N,N,Fun-loving,Y,N,Business school,Y
+5,5,32,M,1st yr MESM, Conservation Planning,N,N,Serious,Y,Y,Environmental school,Y
+5,5,24,M,1st yr MESM, Water Resources Management,Y,Y,Fun-loving,Y,Y,Environmental school,Y
+2,2,39,F,1st yr MESM, Coastal & Marine Resources Management,Y,Y,Fun-loving,Y,N,Business school,Y
+3,4,27,F,1st yr MESM, Conservation Planning,Y,Y,Fun-loving,Y,N,Environmental school,Y
+4,4,25,M,1st yr MESM, Water Resources Management,Y,Y,Fun-loving,Y,Y,Environmental school,Y
+3,3,22,F,1st yr MESM, Conservation Planning,Y,Y,Fun-loving,Y,N,Business school,N
+2,3,27,F,1st yr MESM, Pollution Prevention & Remediation ,Y,Y,Fun-loving,N,Y,Environmental school,Y
+3,4,27,F,1st yr MESM, Pollution Prevention & Remediation ,Y,Y,Fun-loving,N,N,Environmental school,Y
+3,3,26,F,1st yr MESM, Water Resources Management,Y,Y,Fun-loving,Y,Y,Environmental school,Y
+5,3,22,F,1st yr MESM, Pollution Prevention & Remediation ,Y,N,Fun-loving,Y,N,Environmental school,N
+4,4,27,F,1st yr MESM, Water Resources Management,Y,Y,Fun-loving,Y,Y,Environmental school,Y
+2,5,25,F,1st yr MESM, Conservation Planning,Y,Y,Fun-loving,Y,N,Environmental school,Y
+1,2,31,F,1st yr MESM, Pollution Prevention & Remediation ,N,Y,Serious,Y,Y,Environmental school,Y
+4,4,27,F,Bren PhD, Environmental Economics & Policy,N,N,Fun-loving,Y,N,Environmental school,Y
+3,4,26,F,1st yr MESM, Environmental Economics & Policy,Y,Y,Fun-loving,Y,N,Environmental school,Y
+3,4,25,F,1st yr MESM, Environmental Economics & Policy,Y,Y,Fun-loving,Y,N,Environmental school,Y
+3,3,27,M,1st yr MESM, Conservation Planning,N,N,Fun-loving,Y,N,Environmental school,Y
+2,2,27,M,1st yr MESM, Environmental Economics & Policy,N,N,Fun-loving,Y,N,Environmental school,Y
+1,2,26,M,1st yr MESM, Corporate Environmental Management,Y,Y,Serious,N,N,Business school,Y
+5,5,30,F,1st yr MESM, Environmental Economics & Policy,N,Y,Fun-loving,Y,N,Environmental school,Y
+1,1,24,M,2nd yr MESM, Environmental Economics & Policy,Y,Y,Serious,Y,N,Business school,N
+3,3,23,F,1st yr MESM, Coastal & Marine Resources Management,Y,Y,Fun-loving,Y,N,Environmental school,N
+5,5,27,M,1st yr MESM, Conservation Planning,Y,Y,Fun-loving,N,N,Environmental school,Y
+1,1,23,F,1st yr MESM, Coastal & Marine Resources Management,Y,Y,Fun-loving,Y,N,Environmental school,Y
+4,4,24,F,1st yr MESM, Water Resources Management,Y,Y,Fun-loving,Y,Y,Environmental school,Y
