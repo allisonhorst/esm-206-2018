@@ -1,0 +1,292 @@
+---
+title: "ESM 206 Lab 4"
+subtitle: "Two-Sample T-Tests, Effect Size, Power Calculations"
+author: "Allison Horst"
+date: "10/11/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lab 4 Objectives
+
+- In-line referencing in markdown, intro to LaTeX entry
+- case_when, count, pull
+- Data exploration and graphing continued
+- Two-Sample T-tests (unpaired, one-sided and two-sided)
+- F-test for equal variances
+- Effect size (Cohen's d)
+- *A priori* power calculations to estimate necessary sample sizes
+
+###0. Load tidyverse, effsize, and pwr packages (include = FALSE) to show no outputs
+
+```{r load_packages, message = FALSE}
+
+suppressMessages(library(tidyverse))
+library(effsize)
+library(pwr)
+library(knitr)
+
+```
+
+### 1. Load the raw data
+For Lab 4, we'll use load dataset nc_birthweights (a random sample of 1000 births in North Carolina). Open the .csv file (from GauchoSpace), load into R (copy and paste the read code into a code chunk in markdown)
+
+```{r load_data}
+
+nc_births <- read_csv("nc_birthweights.csv")
+
+# names(nc_births)
+# class(nc_births)
+# summary(nc_births)
+```
+
+### 2. case_when
+
+Let's update the 'smoke' column so that the words are meaningful, instead of just 0's and 1's, using the case_when() function:
+
+```{r case_when}
+# Update 0s and 1s in 'smoke' column to 'nonsmoker' and 'smoker'
+
+# First, make new data frame that has 0s and 1s replaced with 'nonsmoker' and 'smoker,' and adds that to a new column sdp ("smoke during pregnancy"). Then only keep columns tpounds and sdp.
+
+nc_new <- nc_births %>% 
+    mutate(
+      sdp = case_when(
+  smoke == 0 ~ "nonsmoker",
+  smoke == 1 ~ "smoker")
+  ) %>% 
+  filter(sdp != "NA") %>% 
+  select(sdp, gained, weeks, tpounds)
+
+```
+
+### 3. Go exploring
+
+- Histograms
+- QQ plots
+- Data structure (names, class, etc.)
+- Formal test for normality (shapiro.test)
+
+A bubble plot: size of points based on a variable value
+
+Note: change the height and width of R-generated figures when knitted using fig.height and fig.width, and alignment using fig.align = "center", in the code chunk header
+
+```{r data_exploration, fig.width = 5, fig.height = 4, fig.align = "center"}
+
+# First: a bubble plot
+
+bw_scatter <- ggplot(nc_new, aes(x = weeks, y = tpounds)) +
+  geom_point(aes(color = sdp, size = gained), 
+             alpha = 0.3) +
+  theme_classic() +
+  scale_color_manual(values = c("purple","orange"), name = "Smoker\nStatus") +
+  labs(x = "Gestation time (weeks)", y = "Birth weight (pounds)") +
+  scale_size_continuous(name = "Mother\nWeight Gain")
+
+bw_scatter
+
+```
+
+Histograms and QQ plots:
+```{r hist_qq}
+## HISTOGRAMS:
+birth_hist <- ggplot(nc_new, aes(x = tpounds)) +
+  geom_histogram(aes(fill = sdp)) +
+  facet_wrap(~ sdp, scale = "free")
+
+birth_hist
+
+# Pretty normally distributed, but large sample sizes:
+counts <- nc_new %>% 
+  count(sdp)
+
+# Notice that 'count' does group_by + length for you, so that's useful. 
+
+## QQ-PLOTS: 
+birth_qq <- ggplot(nc_new, aes(sample = tpounds)) +
+  geom_qq(aes(fill = sdp)) +
+  facet_wrap(~ sdp, scale = "free")
+
+birth_qq
+
+## SUMMARY INFORMATION TABLE:
+birth_summary <- nc_new %>% 
+  group_by(sdp) %>% 
+  summarize(
+    mean_wt = mean(tpounds),
+    sd_wt = sd(tpounds),
+    max_wt = max(tpounds),
+    min_wt = min(tpounds),
+    sample_size = length(sdp)
+  )
+
+kable(birth_summary)
+```
+
+###4. A formal hypothesis test for normality
+
+Be cautious of these tests - they can lead to bad binary decisions. If you have a large sample size, you will almost always reject the null hypothesis of normality (even if very close...). If you have small sample size, you will almost NEVER reject the null hypothesis of normality (even if it looks very non-normal). 
+
+First, make VECTORS containing just the weights for babies born to smoking or non-smoking mothers:
+```{r}
+
+# Use pull() to create a vector of non-smoker baby weights
+s <- nc_new %>% 
+  filter(sdp == "smoker") %>% 
+  pull(tpounds)
+
+# Use pull() to create a vector of non-smoker baby weights
+ns <- nc_new %>% 
+  filter(sdp == "nonsmoker") %>% 
+  pull(tpounds)
+
+# Now we have two vectors containing only birth weight values for smoking (s) and nonsmoking (ns) mothers
+```
+
+A formal test for normality: Shapiro Wilk (one of many...)
+```{r}
+shapiro.test(s) # First shapiro test for normality
+shapiro.test(ns) # Then this one
+
+# So what do you think about the shape from the histograms/qq plots? What about from the formal test for normality? And WHY could you use a t-test even if it doesn't seem perfectly normal? n >> 30 for each sample...CLT O.K. for comparing means. 
+
+```
+
+### 5. F-Test for equal variances
+
+```{r f_test_equal_var}
+
+#H0: The ratio of sample variances = 1 (variances are equal)
+#H1: The ratio of sample variances is NOT 1 (variances are unequal)
+
+f_test <- var.test(s,ns)
+f_test
+
+# Conclude: variances are equal (also, general rule: if largest sample variance is < 4x greater than the smallest sample variance, then usually tests are OK)
+
+```
+
+
+### 5. Two sample t-tests to compare means
+
+**Question 1: Is there a significant difference in birthweight for babies born to smoking versus non-smoking mothers?**
+
+You should be able to:
+1. Write out null and alternative hypothesis
+2. Choose significance level
+3. Perform test
+4. Write a concluding statement
+
+```{r sig_diff}
+
+# H0: There is not a significant difference in birthweights for babies born to smoking/non-smoking mothers
+# HA: There IS a significant difference in mean birthweights
+
+# alpha = 0.05 (two-tailed)
+
+t_diff <- t.test(s, ns)
+t_diff
+
+```
+
+Conclusion: There is a significant difference in mean birthweight for babies born to smoking ($\mu$ = `r {round(mean(s),2)}` lbs, n = 126) and non-smoking ($\mu$ = `r {round(mean(ns),2)}` lbs, n = 873) mothers in North Carolina (t(`r {round(t_diff$parameter,2)}`) = `r {round(t_diff$statistic,2)}`, *p* = `r {round(t_diff$p.value,3)}`).
+
+**Question 2: Do babies born to smoking mothers have a lower mean birthweight than those born to non-smoking mothers?
+
+```{r one_tailed}
+
+#H0: Birthweight for babies born to smoking mothers is NOT lower than for non-smoking mothers
+#HA: Birthweight for babies born to smoking mothers IS lower than for non-smoking mothers
+
+t_s_less_ns <- t.test(s, ns, alternative = "less")
+t_s_less_ns
+
+# Conclusion: Babies born to smoking mothers are significantly smaller (birth weight) than those born to non-smoking mothers (t(171) = -2.4, p = 0.01). 
+
+# Ask: wait...how does this compare to the two-sided test? It is only in a SINGLE TAIL. It is half of the p-value for a two-sided test.
+```
+
+Reminder: in the examples above, we are comparing means for UNPAIRED samples. What if we have samples that *are* paired (each observation in one sample is associated with one observation in the other sample)? Then we'd want to use a paired t-test. 
+
+Just do that by adding argument *paired = TRUE* in the t.test() function.
+
+###6. Beyond the p-value: effect size (package 'effsize')
+
+Remember that the p-value only tells part of the story. We choose a cut-off point where we'll either reject or retain the null hypothesis. But if we have a large enough sample size, then you can find a significant difference between means no matter how close together they are. 
+
+We should start thinking about different ways to discuss the **magnitude of differences** between samples in addition to reporting p-values. One way is *effect size*, which we'll calculate using Cohen's d. 
+
+Example: Find the effect size (Cohen's d) for the babies of smoking/non-smoking mothers. 
+
+```{r cohen_d}
+
+effect_size <- cohen.d(ns,s) # Calculate Cohen's d for effect size btwn smoking/non-smoking
+# d-estimate: 0.21 (small effect size)
+
+effect_size # This is a small size
+
+```
+*For the sake of time, we won't do further inline references (but it's a good idea to practice it...)*
+
+Conclusion: While babies born to smoking mothers are significantly smaller in weight than those born to non-smoking mothers (t(171) = -2.4, p = 0.01), the effect size is small (Cohen's *d* = 0.21), with only a 0.31 pound difference between mean weights. Further, mean weights for babies born to both smoking and non-smoking mothers are well above low birthweight criteria. << Always think about CONTEXT!
+
+### 7. Power Analysis (package 'pwr')
+
+The type of power analysis that you'll do depends on the TEST. Which means that there's a different power calculation for each type of hypothesis test you'll run. 
+
+For example, to find values associated with power for a t-test, you'll use pwr.t.test(), but if you're doing a calculation for an ANOVA, you'll use pwr.anova.test().
+
+Remember, the POWER of a test is the probability that you will detect a significant result if there really is one. It is the complement of committing a Type II Error, $\beta$ (there IS a significant result but you don't detect it). 
+
+First, check out the pwr.t.test() function (make sure 'pwr' package is loaded - if at home, they'll need to install first)
+
+**Example:** You need to collect samples to test a hypothesis that lagoons downstream from golf courses contain higher phosphate concentrations that those not downstream from golf courses. If:
+
+A. you plan to use a two-sample t-test to compare phosphate concentrations, 
+B. your significance level is 0.05,
+C. you want to have a power of 0.80
+
+...then how many samples would you have to collect if there is a SMALL (d ~ 0.2), MODERATE (d ~ 0.5), or LARGE (d ~ 0.8) effect size? First of all, how can we GUESS what the effect size might be if we have *a priori* information? It's *basically* the difference in means divided by the pooled standard deviation. So you could estimate what the effect size will be, or just try endpoints for low and high effect size.
+
+To use pwr.t.test() function, there are four components:
+
+n = sample size
+d = Cohen's d effect size
+sig.level = alpha
+power = power (standard is ~ 0.8)
+
+If you give the function THREE of those things, and set the fourth to NULL, then the fourth thing will be calculated for you.
+
+```{r a_priori_power_calcs}
+
+# Small effect size:
+power_small <- pwr.t.test(n = NULL, d = 0.2, sig.level = 0.05, power = 0.8)
+power_small # ~ 393 samples needed for each group
+
+# Moderate effect size:
+power_moderate <- pwr.t.test(n = NULL, d = 0.5, sig.level = 0.05, power = 0.8)
+power_moderate # ~ 64 amples needed for EACH group
+
+power_large <- pwr.t.test(n = NULL, d = 0.8, sig.level = 0.05, power = 0.8)
+power_large # ~ 25 samples needed for EACH group
+
+```
+
+What if we want to calculate the power associated with a test we've already done? This isn't usually super interesting, but you can do it. 
+
+**Example:** You've already performed a t-test using two samples for lagoons downstream from golf courses and those not downstream from golfcourses (n = 40 for each), finding an effect size (Cohen's d) of 0.6. What is the power associated with your test if your significance level is 0.05?
+
+```{r post_hoc_power}
+
+power_post_hoc <- pwr.t.test(n = 40, d = 0.6, sig.level = 0.05, p = NULL)
+power_post_hoc
+
+```
+
+You had a 75% chance of finding a significant difference if there really is one. Does this matter post-hoc? Not really...you either decided you found a significant differene or you didn't. Post-hoc power kind of becomes just an academic question that isn't super useful it making decisions about data. 
+
+##END LAB
+
