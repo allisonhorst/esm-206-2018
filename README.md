@@ -14,8 +14,8 @@ Course goals:
 
 *Note: Repo and course materials are in development; forgive the dust and incompleteness while I work on it.*
 
-Link to Weekly Materials | Lab topics | Packages required | Some key functions introduced this week...
------|---------|--------------|----------
+Link to Weekly Materials | Lectures | Lab topics | Packages required | Some key functions introduced this week...
+-----|--------| ---------|--------------|----------
 [Week 0 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_0) | <ul><li>Install R and RStudio</li></ul> | none | none
 [Week 1 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_1) | <ul><li>Meet R and RStudio</li><li>Install and load the tidyverse</li><li>Read in a CSV</li><li>Wrangling basics with dplyr</li><li>Basic data exploration</li><li>The pipe operator</li><li>Intro to ggplot2 visualization</li></ul> | <ul><li>tidyverse</li></ul> | read_csv, names, dim, class, summary, head, tail, select, filter, arrange, mutate, pipe %>%, ggplot, geom_point, geom_line
 [Week 2 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_2) | <ul><li>Working in R Projects</li><li>Intro to Rmarkdown</li><li>Data wrangling basics with dplyr</li><li>group_by() + summarize()</li><li>Basic ggplot histograms, column graphs, scatterplots, boxplots and jitterplots</li><li>Knitting to html</li></ul> | <ul><li>tidyverse</li><li>RColorBrewer</li></ul> | rename, group_by, summarize, write_csv, geom_col, factor, geom_histogram
