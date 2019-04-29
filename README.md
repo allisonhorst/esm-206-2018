@@ -19,7 +19,7 @@ Week | Lectures | Lab Materials|
 0 | (none) | [Get R/RStudio instructions](https://github.com/allisonhorst/esm-206-2018/tree/master/week_0) 
 1 | [Lecture 1: Course intro](https://docs.google.com/presentation/d/1cPWa6NqbEot8dBjVC7UKPjF72Q7myYjHqyBYS9HO_qg/edit?usp=sharing)<br>[Lecture 2]() | [Lab 1: Intro to R/RStudio](https://github.com/allisonhorst/esm-206-2018/tree/master/week_1) 
 2 | [Lecture 3]()<br>[Lecture 4]() | [Lab 2: Basic wrangling and visualization](https://github.com/allisonhorst/esm-206-2018/tree/master/week_2)
-3 | [Lecture 5]()<br>[Lecture 6]() | [Lab 3 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_3) 
+3 | [Lecture 5]()<br>[Lecture 6]() | [Lab 3: Z-distribution probabilities, t-tests](https://github.com/allisonhorst/esm-206-2018/tree/master/week_3) 
 4 | [Lecture 7]()<br>[Lecture 8]() | [Lab 4 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_4) 
 5 | [Lecture 9]()<br>[Lecture 10]()| [Lab 5 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_5)
 6 | [Lecture 11]()<br>[Lecture 12]() | [Lab 6 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_6) 
