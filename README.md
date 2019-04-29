@@ -17,7 +17,7 @@ Course goals:
 Week | Lectures | Lab Materials| 
 -----|--------| ---------
 0 | (none) | [Week 0 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_0) 
-1 | [Lecture 1](https://docs.google.com/presentation/d/1cPWa6NqbEot8dBjVC7UKPjF72Q7myYjHqyBYS9HO_qg/edit?usp=sharing)<br>[Lecture 2]() | [Lab 1 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_1) 
+1 | [Lecture 1: Course intro](https://docs.google.com/presentation/d/1cPWa6NqbEot8dBjVC7UKPjF72Q7myYjHqyBYS9HO_qg/edit?usp=sharing)<br>[Lecture 2]() | [Lab 1 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_1) 
 2 | [Lecture 3]()<br>[Lecture 4]() | [Lab 2 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_2)
 3 | [Lecture 5]()<br>[Lecture 6]() | [Lab 3 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_3) 
 4 | [Lecture 7]()<br>[Lecture 8]() | [Lab 4 Materials](https://github.com/allisonhorst/esm-206-2018/tree/master/week_4) 
