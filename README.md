@@ -14,6 +14,9 @@ Course goals:
 
 *Note: Repo and course materials are in development; forgive the dust and incompleteness while I work on it.*
 
+Get started with R/RStudio step-by-step instructions (installation, etc.): (need to update)
+Get and configure GitHub step-by-step instructions: (need to update)
+
 Week | Lectures | Lab Materials| 
 -----|--------| ---------
 0 | (none) | [Step 0: Get R/RStudio instructions](https://github.com/allisonhorst/esm-206-2018/tree/master/week_0) 
