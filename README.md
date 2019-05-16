@@ -14,8 +14,9 @@ Course goals:
 
 *Note: Repo and course materials are in development; forgive the dust and incompleteness while I work on it.*
 
-Get started with R/RStudio step-by-step instructions (installation, etc.): (need to update)
-Get and configure GitHub step-by-step instructions: (need to update)
+[Get R, RStudio and the tidyverse package: step-by-step instructions](https://docs.google.com/document/d/1Imcx8ZropMF5tmLF6As02OJam-r1pNexu5pULczCwMA/edit?usp=sharing)
+
+[Get and configure GitHub: step-by-step instructions](https://docs.google.com/document/d/1zx2upJJqFZe94O3BQSMI56Z76s3haLXC0otKSpcZaJQ/edit?usp=sharing)
 
 Week | Lectures | Lab Materials| 
 -----|--------| ---------
