@@ -19,7 +19,7 @@ Course goals:
 [Get and configure GitHub: step-by-step instructions](https://docs.google.com/document/d/1zx2upJJqFZe94O3BQSMI56Z76s3haLXC0otKSpcZaJQ/edit?usp=sharing)
 
 Week | Lectures | Lab Materials| 
------|--------| ---------
+-----|--------| -----
 0 | (none) | [Step 0: Get R/RStudio instructions](https://github.com/allisonhorst/esm-206-2018/tree/master/week_0) 
 1 | [Lecture 1: Course intro](https://docs.google.com/presentation/d/1cPWa6NqbEot8dBjVC7UKPjF72Q7myYjHqyBYS9HO_qg/edit?usp=sharing)<br>[Lecture 2: Data exploration, probability density, assessing normality](https://docs.google.com/presentation/d/17ejVv4SJgpU7fD09By0zCIdb7tnstfH-Yadj8UOGXHQ/edit?usp=sharing) | [Lab 1: Intro to R/RStudio, R projects, scripts](https://github.com/allisonhorst/esm-206-2018/tree/master/week_1) 
 2 | [Lecture 3: Central limit theorem, confidence intervals, t-distribution](https://docs.google.com/presentation/d/1W5jr6XmWDHanGXaceAWT8nyJealdqT57p_z9SWsTepk/edit?usp=sharing)<br>[Lecture 4: The hypothesis test system](https://docs.google.com/presentation/d/1rgd1_cJvxCemUBuIQhcZV62F4zEgjxIrba6tH_Ieykg/edit?usp=sharing) | [Lab 2: Basic wrangling and visualization, Rmarkdown intro](https://github.com/allisonhorst/esm-206-2018/tree/master/week_2)
